@@ -1,6 +1,8 @@
 #include <iostream>
 #include <MemoryAllocator.h>
 
+using namespace Cinder::Memory;
+
 int main()
 {
 	MemoryPool pool;

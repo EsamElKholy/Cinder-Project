@@ -3,87 +3,94 @@
 #include <stdlib.h>
 #include <string.h>
 
-/*
-****************************************************************************************************************************************************
-Courtesy of David Graham and Mike McShaffry
-*****************************************************************************************************************************************************
-*/
-
-struct MemoryPool
+namespace Cinder
 {
-	MemoryPool();
+	namespace Memory
+	{
+		/*
+		****************************************************************************************************************************************************
+		Courtesy of David Graham and Mike McShaffry
+		*****************************************************************************************************************************************************
+		*/
 
-	~MemoryPool();
+		struct MemoryPool
+		{
+			MemoryPool();
 
-	const static unsigned int CHUNK_HEADER_SIZE = sizeof(unsigned char *);
-	unsigned int ChunkSize;
-	unsigned int ChunkCount;
-	unsigned int ArrayCount;
-	unsigned int UsedCount;
-	unsigned char **RawMemory;
-	unsigned char *Front;
-	bool AllowResize;
+			~MemoryPool();
 
-	bool Init(unsigned int chunkSize, unsigned int chunkCount, bool allowResize);
+			const static unsigned int CHUNK_HEADER_SIZE = sizeof(unsigned char *);
+			unsigned int ChunkSize;
+			unsigned int ChunkCount;
+			unsigned int ArrayCount;
+			unsigned int UsedCount;
+			unsigned char **RawMemory;
+			unsigned char *Front;
+			bool AllowResize;
 
-	void Destroy();
+			bool Init(unsigned int chunkSize, unsigned int chunkCount, bool allowResize);
 
-	void Reset();
+			void Destroy();
 
-	bool GrowMemoryArray();
+			void Reset();
 
-	unsigned char* AllocateBlock();
+			bool GrowMemoryArray();
 
-	unsigned char* GetNext(unsigned char *next);
+			unsigned char* AllocateBlock();
 
-	void SetNext(unsigned char *wanted, unsigned char *next);
+			unsigned char* GetNext(unsigned char *next);
 
-	void* Alloc();
+			void SetNext(unsigned char *wanted, unsigned char *next);
 
-	void Dealloc(void *memory);
+			void* Alloc();
 
-private:
-	MemoryPool(const MemoryPool &memPool){}
-};
+			void Dealloc(void *memory);
 
-/*
-****************************************************************************************************************************************************
-*****************************************************************************************************************************************************
-*/
+		private:
+			MemoryPool(const MemoryPool &memPool){}
+		};
 
-struct StackChunk
-{
-	void *Chunk;
-	unsigned int size;
-	unsigned char *Bookmark;
-};
+		/*
+		****************************************************************************************************************************************************
+		*****************************************************************************************************************************************************
+		*/
 
-struct MemoryStack
-{
-	MemoryStack();
+		struct StackChunk
+		{
+			void *Chunk;
+			unsigned int size;
+			unsigned char *Bookmark;
+		};
 
-	~MemoryStack();	
+		struct MemoryStack
+		{
+			MemoryStack();
 
-	unsigned int TotalSize;
-	unsigned int UsedSize;
-	unsigned char *RawMemory;
-	unsigned char *StackPointer;
-	unsigned char *Front;
-	unsigned char *End;
-	bool AllowResize;
+			~MemoryStack();
 
-	bool Init(unsigned int totalSize, bool allowResize);
+			unsigned int TotalSize;
+			unsigned int UsedSize;
+			unsigned char *RawMemory;
+			unsigned char *StackPointer;
+			unsigned char *Front;
+			unsigned char *End;
+			bool AllowResize;
 
-	void Destroy();
+			bool Init(unsigned int totalSize, bool allowResize);
 
-	void Reset();
+			void Destroy();
 
-	bool GrowMemory();
+			void Reset();
 
-	StackChunk* Alloc(unsigned int size);
+			bool GrowMemory();
 
-	void Dealloc(StackChunk *chunk);
+			StackChunk* Alloc(unsigned int size);
 
-private:
-	MemoryStack(const MemoryStack &memStack){}
-};
+			void Dealloc(StackChunk *chunk);
+
+		private:
+			MemoryStack(const MemoryStack &memStack){}
+		};
+
+	}
+}
