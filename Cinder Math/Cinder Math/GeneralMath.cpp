@@ -1,3 +1,6 @@
+#ifndef GENERAL_MATH_CPP
+#define GENERAL_MATH_CPP
+
 #include "CinderMath.h"
 
 namespace Cinder
@@ -33,3 +36,5 @@ namespace Cinder
 		}
 	}
 }
+
+#endif

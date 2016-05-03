@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cinder Math", "Cinder Math\Cinder Math.vcxproj", "{F30AD0D0-1AE5-4EA6-A9A0-EE1491465E87}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "Test\Test.vcxproj", "{1C18BEE3-04AE-46BA-9282-851B46BD2DFD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F30AD0D0-1AE5-4EA6-A9A0-EE1491465E87} = {F30AD0D0-1AE5-4EA6-A9A0-EE1491465E87}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
