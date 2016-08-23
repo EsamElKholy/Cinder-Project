@@ -15,8 +15,8 @@ int main()
 	v31 = (v32 + 2.0f);
 	Vec3::Cross(v32, v31);
 	float x = v32[2];
-
-	mat4f mat4 = mat4f();
+	vec2f v = v2;
+	mat4f mat4 = Mat4::Orthographic(0.0f, 0.0f, 0.0f, 0.0f);
 
 	float f = mat4[1][0];
 

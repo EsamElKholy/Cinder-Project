@@ -1,2142 +1,2096 @@
-#ifndef VECTOR4_CPP
-#define VECTOR4_CPP
-
 #include "CinderMath.h"
 
 namespace Cinder
 {
 	namespace Math
 	{
-		template<class T>
-		Vector4<T>::Vector4(T x, T y, T z, T w)
-			: X(x), Y(y), Z(z), W(w)
-		{}
-
-		template<class T>
-		Vector4<T>::Vector4(Vector3<T> &vec3, T w)
-			: X(vec3.X), Y(vec3.Y), Z(vec3.z), W(w)
-		{}
-
-		template<class T>
-		Vector4<T>::Vector4(T x, Vector3<T> &vec3)
-			: X(x), Y(vec3.X), Z(vec3.Y), W(vec3.Z)
-		{}
-
-		template<class T>
-		Vector4<T>::Vector4(Vector3<T> &vec3)
-			: X(vec3.X), Y(vec3.Y), Z(vec3.z), W(T(0))
-		{}
-
-		template<class T>
-		Vector4<T>::Vector4(Vector2<T> &vec2)
-			: X(vec2.X), Y(vec2.Y), Z(T(0)), W(T(0))
-		{}
-
-		template<class T>
-		Vector4<T>::Vector4(Vector2<T> &vec2_1, Vector2<T> &vec2_2)
-			: X(vec2_1.X), Y(vec2_1.Y), Z(vec2_2.X), W(vec2_2.Y)
-		{}
-
-		template<class T>
-		Vector4<T>::Vector4(Vector2<T> &vec2, T z, T w)
-			: X(vec2.X), Y(vec2.Y), Z(z), W(w)
-		{}
-
-		template<class T>
-		Vector4<T>::Vector4(T x, T y, Vector2<T> &vec2)
-			: X(x), Y(y), Z(vec2.X), W(vec2.Y)
-		{}
-
-		//////////////////////					
-
-		template<class T>
-		Vector2<T> Vector4<T>::XX()
+		vec2f vec4f::XX()
 		{
-			return Vector2<T>(this->X, this->X);
+			return vec2f(this->X, this->X);
 		}
 
-		template<class T>
-		Vector2<T> Vector4<T>::XY()
+		
+		vec2f vec4f::XY()
 		{
-			return Vector2<T>(this->X, this->Y);
+			return vec2f(this->X, this->Y);
 		}
 
-		template<class T>
-		Vector2<T> Vector4<T>::XZ()
+		
+		vec2f vec4f::XZ()
 		{
-			return Vector2<T>(this->X, this->Z);
+			return vec2f(this->X, this->Z);
 		}
 
-		template<class T>
-		Vector2<T> Vector4<T>::XW()
+		
+		vec2f vec4f::XW()
 		{
-			return Vector2<T>(this->X, this->W);
+			return vec2f(this->X, this->W);
 		}
 
 		//////////////////////
 
-		template<class T>
-		Vector2<T> Vector4<T>::YX()
+		
+		vec2f vec4f::YX()
 		{
-			return Vector2<T>(this->Y, this->X);
+			return vec2f(this->Y, this->X);
 		}
 
-		template<class T>
-		Vector2<T> Vector4<T>::YY()
+		
+		vec2f vec4f::YY()
 		{
-			return Vector2<T>(this->Y, this->Y);
+			return vec2f(this->Y, this->Y);
 		}
 
-		template<class T>
-		Vector2<T> Vector4<T>::YZ()
+		
+		vec2f vec4f::YZ()
 		{
-			return Vector2<T>(this->Y, this->Z);
+			return vec2f(this->Y, this->Z);
 		}
 
-		template<class T>
-		Vector2<T> Vector4<T>::YW()
+		
+		vec2f vec4f::YW()
 		{
-			return Vector2<T>(this->Y, this->W);
+			return vec2f(this->Y, this->W);
 		}
 
 		//////////////////////
 
-		template<class T>
-		Vector2<T> Vector4<T>::ZX()
+		
+		vec2f vec4f::ZX()
 		{
-			return Vector2<T>(this->Z, this->X);
+			return vec2f(this->Z, this->X);
 		}
 
-		template<class T>
-		Vector2<T> Vector4<T>::ZY()
+		
+		vec2f vec4f::ZY()
 		{
-			return Vector2<T>(this->Z, this->Y);
+			return vec2f(this->Z, this->Y);
 		}
 
-		template<class T>
-		Vector2<T> Vector4<T>::ZZ()
+		
+		vec2f vec4f::ZZ()
 		{
-			return Vector2<T>(this->Z, this->Z);
+			return vec2f(this->Z, this->Z);
 		}
 
-		template<class T>
-		Vector2<T> Vector4<T>::ZW()
+		
+		vec2f vec4f::ZW()
 		{
-			return Vector2<T>(this->Z, this->W);
+			return vec2f(this->Z, this->W);
 		}
 
 		///////////////////////
 
-		template<class T>
-		Vector2<T> Vector4<T>::WX()
+		
+		vec2f vec4f::WX()
 		{
-			return Vector2<T>(this->W, this->X);
+			return vec2f(this->W, this->X);
 		}
 
-		template<class T>
-		Vector2<T> Vector4<T>::WY()
+		
+		vec2f vec4f::WY()
 		{
-			return Vector2<T>(this->W, this->Y);
+			return vec2f(this->W, this->Y);
 		}
 
-		template<class T>
-		Vector2<T> Vector4<T>::WZ()
+		
+		vec2f vec4f::WZ()
 		{
-			return Vector2<T>(this->W, this->Z);
+			return vec2f(this->W, this->Z);
 		}
 
-		template<class T>
-		Vector2<T> Vector4<T>::WW()
+		
+		vec2f vec4f::WW()
 		{
-			return Vector2<T>(this->W, this->W);
-		}
-
-		//////////////////////
-
-		template<class T>
-		Vector3<T> Vector4<T>::XXX()
-		{
-			return Vector3<T>(this->X, this->X, this->X);
-		}
-
-		template<class T>
-		Vector3<T> Vector4<T>::XXY()
-		{
-			return Vector3<T>(this->X, this->X, this->Y);
-		}
-
-		template<class T>
-		Vector3<T> Vector4<T>::XXZ()
-		{
-			return Vector3<T>(this->X, this->X, this->Z);
-		}
-
-		template<class T>
-		Vector3<T> Vector4<T>::XXW()
-		{
-			return Vector3<T>(this->X, this->X, this->W);
-		}
-
-		template<class T>
-		Vector3<T> Vector4<T>::XYX()
-		{
-			return Vector3<T>(this->X, this->Y, this->X);
-		}
-
-		template<class T>
-		Vector3<T> Vector4<T>::XYY()
-		{
-			return Vector3<T>(this->X, this->Y, this->Y);
-		}
-
-		template<class T>
-		Vector3<T> Vector4<T>::XYZ()
-		{
-			return Vector3<T>(this->X, this->Y, this->Z);
-		}
-
-		template<class T>
-		Vector3<T> Vector4<T>::XYW()
-		{
-			return Vector3<T>(this->X, this->Y, this->W);
-		}
-
-		template<class T>
-		Vector3<T> Vector4<T>::XZX()
-		{
-			return Vector3<T>(this->X, this->Z, this->X);
-		}
-
-		template<class T>
-		Vector3<T> Vector4<T>::XZY()
-		{
-			return Vector3<T>(this->X, this->Z, this->Y);
-		}
-
-		template<class T>
-		Vector3<T> Vector4<T>::XZZ()
-		{
-			return Vector3<T>(this->X, this->Z, this->Z);
-		}
-
-		template<class T>
-		Vector3<T> Vector4<T>::XZW()
-		{
-			return Vector3<T>(this->X, this->Z, this->W);
-		}
-
-		template<class T>
-		Vector3<T> Vector4<T>::XWX()
-		{
-			return Vector3<T>(this->X, this->W, this->X);
-		}
-
-		template<class T>
-		Vector3<T> Vector4<T>::XWY()
-		{
-			return Vector3<T>(this->X, this->W, this->Y);
-		}
-
-		template<class T>
-		Vector3<T> Vector4<T>::XWZ()
-		{
-			return Vector3<T>(this->X, this->W, this->Z);
-		}
-
-		template<class T>
-		Vector3<T> Vector4<T>::XWW()
-		{
-			return Vector3<T>(this->X, this->W, this->W);
+			return vec2f(this->W, this->W);
 		}
 
 		//////////////////////
 
-		template<class T>
-		Vector3<T> Vector4<T>::YXX()
+		
+		vec3f vec4f::XXX()
 		{
-			return Vector3<T>(this->Y, this->X, this->X);
+			return vec3f(this->X, this->X, this->X);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::YXY()
+		
+		vec3f vec4f::XXY()
 		{
-			return Vector3<T>(this->Y, this->X, this->Y);
+			return vec3f(this->X, this->X, this->Y);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::YXZ()
+		
+		vec3f vec4f::XXZ()
 		{
-			return Vector3<T>(this->Y, this->X, this->Z);
+			return vec3f(this->X, this->X, this->Z);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::YXW()
+		
+		vec3f vec4f::XXW()
 		{
-			return Vector3<T>(this->Y, this->X, this->W);
+			return vec3f(this->X, this->X, this->W);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::YYX()
+		
+		vec3f vec4f::XYX()
 		{
-			return Vector3<T>(this->Y, this->Y, this->X);
+			return vec3f(this->X, this->Y, this->X);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::YYY()
+		
+		vec3f vec4f::XYY()
 		{
-			return Vector3<T>(this->Y, this->Y, this->Y);
+			return vec3f(this->X, this->Y, this->Y);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::YYZ()
+		
+		vec3f vec4f::XYZ()
 		{
-			return Vector3<T>(this->Y, this->Y, this->Z);
+			return vec3f(this->X, this->Y, this->Z);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::YYW()
+		
+		vec3f vec4f::XYW()
 		{
-			return Vector3<T>(this->Y, this->Y, this->W);
+			return vec3f(this->X, this->Y, this->W);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::YZX()
+		
+		vec3f vec4f::XZX()
 		{
-			return Vector3<T>(this->Y, this->Z, this->X);
+			return vec3f(this->X, this->Z, this->X);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::YZY()
+		
+		vec3f vec4f::XZY()
 		{
-			return Vector3<T>(this->Y, this->Z, this->Y);
+			return vec3f(this->X, this->Z, this->Y);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::YZZ()
+		
+		vec3f vec4f::XZZ()
 		{
-			return Vector3<T>(this->Y, this->Z, this->Z);
+			return vec3f(this->X, this->Z, this->Z);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::YZW()
+		
+		vec3f vec4f::XZW()
 		{
-			return Vector3<T>(this->Y, this->Z, this->W);
+			return vec3f(this->X, this->Z, this->W);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::YWX()
+		
+		vec3f vec4f::XWX()
 		{
-			return Vector3<T>(this->Y, this->W, this->X);
+			return vec3f(this->X, this->W, this->X);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::YWY()
+		
+		vec3f vec4f::XWY()
 		{
-			return Vector3<T>(this->Y, this->W, this->Y);
+			return vec3f(this->X, this->W, this->Y);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::YWZ()
+		
+		vec3f vec4f::XWZ()
 		{
-			return Vector3<T>(this->Y, this->W, this->Z);
+			return vec3f(this->X, this->W, this->Z);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::YWW()
+		
+		vec3f vec4f::XWW()
 		{
-			return Vector3<T>(this->Y, this->W, this->W);
+			return vec3f(this->X, this->W, this->W);
 		}
 
 		//////////////////////
 
-		template<class T>
-		Vector3<T> Vector4<T>::ZXX()
+		
+		vec3f vec4f::YXX()
 		{
-			return Vector3<T>(this->Z, this->X, this->X);
+			return vec3f(this->Y, this->X, this->X);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::ZXY()
+		
+		vec3f vec4f::YXY()
 		{
-			return Vector3<T>(this->Z, this->X, this->Y);
+			return vec3f(this->Y, this->X, this->Y);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::ZXZ()
+		
+		vec3f vec4f::YXZ()
 		{
-			return Vector3<T>(this->Z, this->X, this->Z);
+			return vec3f(this->Y, this->X, this->Z);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::ZXW()
+		
+		vec3f vec4f::YXW()
 		{
-			return Vector3<T>(this->Z, this->X, this->W);
+			return vec3f(this->Y, this->X, this->W);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::ZYX()
+		
+		vec3f vec4f::YYX()
 		{
-			return Vector3<T>(this->Z, this->Y, this->X);
+			return vec3f(this->Y, this->Y, this->X);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::ZYY()
+		
+		vec3f vec4f::YYY()
 		{
-			return Vector3<T>(this->Z, this->Y, this->Y);
+			return vec3f(this->Y, this->Y, this->Y);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::ZYZ()
+		
+		vec3f vec4f::YYZ()
 		{
-			return Vector3<T>(this->Z, this->Y, this->Z);
+			return vec3f(this->Y, this->Y, this->Z);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::ZYW()
+		
+		vec3f vec4f::YYW()
 		{
-			return Vector3<T>(this->Z, this->Y, this->W);
+			return vec3f(this->Y, this->Y, this->W);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::ZZX()
+		
+		vec3f vec4f::YZX()
 		{
-			return Vector3<T>(this->Z, this->Z, this->X);
+			return vec3f(this->Y, this->Z, this->X);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::ZZY()
+		
+		vec3f vec4f::YZY()
 		{
-			return Vector3<T>(this->Z, this->Z, this->Y);
+			return vec3f(this->Y, this->Z, this->Y);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::ZZZ()
+		
+		vec3f vec4f::YZZ()
 		{
-			return Vector3<T>(this->Z, this->Z, this->Z);
+			return vec3f(this->Y, this->Z, this->Z);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::ZZW()
+		
+		vec3f vec4f::YZW()
 		{
-			return Vector3<T>(this->Z, this->Z, this->W);
+			return vec3f(this->Y, this->Z, this->W);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::ZWX()
+		
+		vec3f vec4f::YWX()
 		{
-			return Vector3<T>(this->Z, this->W, this->X);
+			return vec3f(this->Y, this->W, this->X);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::ZWY()
+		
+		vec3f vec4f::YWY()
 		{
-			return Vector3<T>(this->Z, this->W, this->Y);
+			return vec3f(this->Y, this->W, this->Y);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::ZWZ()
+		
+		vec3f vec4f::YWZ()
 		{
-			return Vector3<T>(this->Z, this->W, this->Z);
+			return vec3f(this->Y, this->W, this->Z);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::ZWW()
+		
+		vec3f vec4f::YWW()
 		{
-			return Vector3<T>(this->Z, this->W, this->W);
+			return vec3f(this->Y, this->W, this->W);
+		}
+
+		//////////////////////
+
+		
+		vec3f vec4f::ZXX()
+		{
+			return vec3f(this->Z, this->X, this->X);
+		}
+
+		
+		vec3f vec4f::ZXY()
+		{
+			return vec3f(this->Z, this->X, this->Y);
+		}
+
+		
+		vec3f vec4f::ZXZ()
+		{
+			return vec3f(this->Z, this->X, this->Z);
+		}
+
+		
+		vec3f vec4f::ZXW()
+		{
+			return vec3f(this->Z, this->X, this->W);
+		}
+
+		
+		vec3f vec4f::ZYX()
+		{
+			return vec3f(this->Z, this->Y, this->X);
+		}
+
+		
+		vec3f vec4f::ZYY()
+		{
+			return vec3f(this->Z, this->Y, this->Y);
+		}
+
+		
+		vec3f vec4f::ZYZ()
+		{
+			return vec3f(this->Z, this->Y, this->Z);
+		}
+
+		
+		vec3f vec4f::ZYW()
+		{
+			return vec3f(this->Z, this->Y, this->W);
+		}
+
+		
+		vec3f vec4f::ZZX()
+		{
+			return vec3f(this->Z, this->Z, this->X);
+		}
+
+		
+		vec3f vec4f::ZZY()
+		{
+			return vec3f(this->Z, this->Z, this->Y);
+		}
+
+		
+		vec3f vec4f::ZZZ()
+		{
+			return vec3f(this->Z, this->Z, this->Z);
+		}
+
+		
+		vec3f vec4f::ZZW()
+		{
+			return vec3f(this->Z, this->Z, this->W);
+		}
+
+		
+		vec3f vec4f::ZWX()
+		{
+			return vec3f(this->Z, this->W, this->X);
+		}
+
+		
+		vec3f vec4f::ZWY()
+		{
+			return vec3f(this->Z, this->W, this->Y);
+		}
+
+		
+		vec3f vec4f::ZWZ()
+		{
+			return vec3f(this->Z, this->W, this->Z);
+		}
+
+		
+		vec3f vec4f::ZWW()
+		{
+			return vec3f(this->Z, this->W, this->W);
 		}
 
 		//////////////////////	
 
-		template<class T>
-		Vector3<T> Vector4<T>::WXX()
+		
+		vec3f vec4f::WXX()
 		{
-			return Vector3<T>(this->W, this->X, this->X);
+			return vec3f(this->W, this->X, this->X);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::WXY()
+		
+		vec3f vec4f::WXY()
 		{
-			return Vector3<T>(this->W, this->X, this->Y);
+			return vec3f(this->W, this->X, this->Y);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::WXZ()
+		
+		vec3f vec4f::WXZ()
 		{
-			return Vector3<T>(this->W, this->X, this->Z);
+			return vec3f(this->W, this->X, this->Z);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::WXW()
+		
+		vec3f vec4f::WXW()
 		{
-			return Vector3<T>(this->W, this->X, this->W);
+			return vec3f(this->W, this->X, this->W);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::WYX()
+		
+		vec3f vec4f::WYX()
 		{
-			return Vector3<T>(this->W, this->Y, this->X);
+			return vec3f(this->W, this->Y, this->X);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::WYY()
+		
+		vec3f vec4f::WYY()
 		{
-			return Vector3<T>(this->W, this->Y, this->Y);
+			return vec3f(this->W, this->Y, this->Y);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::WYZ()
+		
+		vec3f vec4f::WYZ()
 		{
-			return Vector3<T>(this->W, this->Y, this->Z);
+			return vec3f(this->W, this->Y, this->Z);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::WYW()
+		
+		vec3f vec4f::WYW()
 		{
-			return Vector3<T>(this->W, this->Y, this->W);
+			return vec3f(this->W, this->Y, this->W);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::WZX()
+		
+		vec3f vec4f::WZX()
 		{
-			return Vector3<T>(this->W, this->Z, this->X);
+			return vec3f(this->W, this->Z, this->X);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::WZY()
+		
+		vec3f vec4f::WZY()
 		{
-			return Vector3<T>(this->W, this->Z, this->Y);
+			return vec3f(this->W, this->Z, this->Y);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::WZZ()
+		
+		vec3f vec4f::WZZ()
 		{
-			return Vector3<T>(this->W, this->Z, this->Z);
+			return vec3f(this->W, this->Z, this->Z);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::WZW()
+		
+		vec3f vec4f::WZW()
 		{
-			return Vector3<T>(this->W, this->Z, this->W);
+			return vec3f(this->W, this->Z, this->W);
 		}
 
 
-		template<class T>
-		Vector3<T> Vector4<T>::WWX()
+		
+		vec3f vec4f::WWX()
 		{
-			return Vector3<T>(this->W, this->W, this->X);
+			return vec3f(this->W, this->W, this->X);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::WWY()
+		
+		vec3f vec4f::WWY()
 		{
-			return Vector3<T>(this->W, this->W, this->Y);
+			return vec3f(this->W, this->W, this->Y);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::WWZ()
+		
+		vec3f vec4f::WWZ()
 		{
-			return Vector3<T>(this->W, this->W, this->Z);
+			return vec3f(this->W, this->W, this->Z);
 		}
 
-		template<class T>
-		Vector3<T> Vector4<T>::WWW()
+		
+		vec3f vec4f::WWW()
 		{
-			return Vector3<T>(this->W, this->W, this->W);
-		}
-
-		//////////////////////
-		//////////////////////
-
-		template<class T>
-		Vector4<T> Vector4<T>::XXXX()
-		{
-			return Vector4<T>(this->X, this->X, this->X, this->X);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::XXXY()
-		{
-			return Vector4<T>(this->X, this->X, this->X, this->Y);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::XXXZ()
-		{
-			return Vector4<T>(this->X, this->X, this->X, this->Z);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::XXXW()
-		{
-			return Vector4<T>(this->X, this->X, this->X, this->W);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::XXYX()
-		{
-			return Vector4<T>(this->X, this->X, this->Y, this->X);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::XXYY()
-		{
-			return Vector4<T>(this->X, this->X, this->Y, this->Y);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::XXYZ()
-		{
-			return Vector4<T>(this->X, this->X, this->Y, this->Z);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::XXYW()
-		{
-			return Vector4<T>(this->X, this->X, this->Y, this->W);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::XXZX()
-		{
-			return Vector4<T>(this->X, this->X, this->Z, this->X);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::XXZY()
-		{
-			return Vector4<T>(this->X, this->X, this->Z, this->Y);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::XXZZ()
-		{
-			return Vector4<T>(this->X, this->X, this->Z, this->Z);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::XXZW()
-		{
-			return Vector4<T>(this->X, this->X, this->Z, this->W);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::XXWX()
-		{
-			return Vector4<T>(this->X, this->X, this->W, this->X);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::XXWY()
-		{
-			return Vector4<T>(this->X, this->X, this->W, this->Y);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::XXWZ()
-		{
-			return Vector4<T>(this->X, this->X, this->W, this->Z);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::XXWW()
-		{
-			return Vector4<T>(this->X, this->X, this->W, this->W);
+			return vec3f(this->W, this->W, this->W);
 		}
 
 		//////////////////////
+		//////////////////////
 
-		template<class T>
-		Vector4<T> Vector4<T>::XYXX()
+		
+		vec4f vec4f::XXXX()
 		{
-			return Vector4<T>(this->X, this->Y, this->X, this->X);
+			return vec4f(this->X, this->X, this->X, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XYXY()
+		
+		vec4f vec4f::XXXY()
 		{
-			return Vector4<T>(this->X, this->Y, this->X, this->Y);
+			return vec4f(this->X, this->X, this->X, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XYXZ()
+		
+		vec4f vec4f::XXXZ()
 		{
-			return Vector4<T>(this->X, this->Y, this->X, this->Z);
+			return vec4f(this->X, this->X, this->X, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XYXW()
+		
+		vec4f vec4f::XXXW()
 		{
-			return Vector4<T>(this->X, this->Y, this->X, this->W);
+			return vec4f(this->X, this->X, this->X, this->W);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XYYX()
+		
+		vec4f vec4f::XXYX()
 		{
-			return Vector4<T>(this->X, this->Y, this->Y, this->X);
+			return vec4f(this->X, this->X, this->Y, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XYYY()
+		
+		vec4f vec4f::XXYY()
 		{
-			return Vector4<T>(this->X, this->Y, this->Y, this->Y);
+			return vec4f(this->X, this->X, this->Y, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XYYZ()
+		
+		vec4f vec4f::XXYZ()
 		{
-			return Vector4<T>(this->X, this->Y, this->Y, this->Z);
+			return vec4f(this->X, this->X, this->Y, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XYYW()
+		
+		vec4f vec4f::XXYW()
 		{
-			return Vector4<T>(this->X, this->Y, this->Y, this->W);
+			return vec4f(this->X, this->X, this->Y, this->W);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XYZX()
+		
+		vec4f vec4f::XXZX()
 		{
-			return Vector4<T>(this->X, this->Y, this->Z, this->X);
+			return vec4f(this->X, this->X, this->Z, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XYZY()
+		
+		vec4f vec4f::XXZY()
 		{
-			return Vector4<T>(this->X, this->Y, this->Z, this->Y);
+			return vec4f(this->X, this->X, this->Z, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XYZZ()
+		
+		vec4f vec4f::XXZZ()
 		{
-			return Vector4<T>(this->X, this->Y, this->Z, this->Z);
+			return vec4f(this->X, this->X, this->Z, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XYZW()
+		
+		vec4f vec4f::XXZW()
 		{
-			return Vector4<T>(this->X, this->Y, this->Z, this->W);
+			return vec4f(this->X, this->X, this->Z, this->W);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XYWX()
+		
+		vec4f vec4f::XXWX()
 		{
-			return Vector4<T>(this->X, this->Y, this->W, this->X);
+			return vec4f(this->X, this->X, this->W, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XYWY()
+		
+		vec4f vec4f::XXWY()
 		{
-			return Vector4<T>(this->X, this->Y, this->W, this->Y);
+			return vec4f(this->X, this->X, this->W, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XYWZ()
+		
+		vec4f vec4f::XXWZ()
 		{
-			return Vector4<T>(this->X, this->Y, this->W, this->Z);
+			return vec4f(this->X, this->X, this->W, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XYWW()
+		
+		vec4f vec4f::XXWW()
 		{
-			return Vector4<T>(this->X, this->Y, this->W, this->W);
+			return vec4f(this->X, this->X, this->W, this->W);
 		}
 
 		//////////////////////
 
-		template<class T>
-		Vector4<T> Vector4<T>::XZXX()
+		
+		vec4f vec4f::XYXX()
 		{
-			return Vector4<T>(this->X, this->Z, this->X, this->X);
+			return vec4f(this->X, this->Y, this->X, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XZXY()
+		
+		vec4f vec4f::XYXY()
 		{
-			return Vector4<T>(this->X, this->Z, this->X, this->Y);
+			return vec4f(this->X, this->Y, this->X, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XZXZ()
+		
+		vec4f vec4f::XYXZ()
 		{
-			return Vector4<T>(this->X, this->Z, this->X, this->Z);
+			return vec4f(this->X, this->Y, this->X, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XZXW()
+		
+		vec4f vec4f::XYXW()
 		{
-			return Vector4<T>(this->X, this->Z, this->X, this->W);
+			return vec4f(this->X, this->Y, this->X, this->W);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XZYX()
+		
+		vec4f vec4f::XYYX()
 		{
-			return Vector4<T>(this->X, this->Z, this->Y, this->X);
+			return vec4f(this->X, this->Y, this->Y, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XZYY()
+		
+		vec4f vec4f::XYYY()
 		{
-			return Vector4<T>(this->X, this->Z, this->Y, this->Y);
+			return vec4f(this->X, this->Y, this->Y, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XZYZ()
+		
+		vec4f vec4f::XYYZ()
 		{
-			return Vector4<T>(this->X, this->Z, this->Y, this->Z);
+			return vec4f(this->X, this->Y, this->Y, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XZYW()
+		
+		vec4f vec4f::XYYW()
 		{
-			return Vector4<T>(this->X, this->Z, this->Y, this->W);
+			return vec4f(this->X, this->Y, this->Y, this->W);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XZZX()
+		
+		vec4f vec4f::XYZX()
 		{
-			return Vector4<T>(this->X, this->Z, this->Z, this->X);
+			return vec4f(this->X, this->Y, this->Z, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XZZY()
+		
+		vec4f vec4f::XYZY()
 		{
-			return Vector4<T>(this->X, this->Z, this->Z, this->Y);
+			return vec4f(this->X, this->Y, this->Z, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XZZZ()
+		
+		vec4f vec4f::XYZZ()
 		{
-			return Vector4<T>(this->X, this->Z, this->Z, this->Z);
+			return vec4f(this->X, this->Y, this->Z, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XZZW()
+		
+		vec4f vec4f::XYZW()
 		{
-			return Vector4<T>(this->X, this->Z, this->Z, this->W);
+			return vec4f(this->X, this->Y, this->Z, this->W);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XZWX()
+		
+		vec4f vec4f::XYWX()
 		{
-			return Vector4<T>(this->X, this->Z, this->W, this->X);
+			return vec4f(this->X, this->Y, this->W, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XZWY()
+		
+		vec4f vec4f::XYWY()
 		{
-			return Vector4<T>(this->X, this->Z, this->W, this->Y);
+			return vec4f(this->X, this->Y, this->W, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XZWZ()
+		
+		vec4f vec4f::XYWZ()
 		{
-			return Vector4<T>(this->X, this->Z, this->W, this->Z);
+			return vec4f(this->X, this->Y, this->W, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XZWW()
+		
+		vec4f vec4f::XYWW()
 		{
-			return Vector4<T>(this->X, this->Z, this->W, this->W);
+			return vec4f(this->X, this->Y, this->W, this->W);
+		}
+
+		//////////////////////
+
+		
+		vec4f vec4f::XZXX()
+		{
+			return vec4f(this->X, this->Z, this->X, this->X);
+		}
+
+		
+		vec4f vec4f::XZXY()
+		{
+			return vec4f(this->X, this->Z, this->X, this->Y);
+		}
+
+		
+		vec4f vec4f::XZXZ()
+		{
+			return vec4f(this->X, this->Z, this->X, this->Z);
+		}
+
+		
+		vec4f vec4f::XZXW()
+		{
+			return vec4f(this->X, this->Z, this->X, this->W);
+		}
+
+		
+		vec4f vec4f::XZYX()
+		{
+			return vec4f(this->X, this->Z, this->Y, this->X);
+		}
+
+		
+		vec4f vec4f::XZYY()
+		{
+			return vec4f(this->X, this->Z, this->Y, this->Y);
+		}
+
+		
+		vec4f vec4f::XZYZ()
+		{
+			return vec4f(this->X, this->Z, this->Y, this->Z);
+		}
+
+		
+		vec4f vec4f::XZYW()
+		{
+			return vec4f(this->X, this->Z, this->Y, this->W);
+		}
+
+		
+		vec4f vec4f::XZZX()
+		{
+			return vec4f(this->X, this->Z, this->Z, this->X);
+		}
+
+		
+		vec4f vec4f::XZZY()
+		{
+			return vec4f(this->X, this->Z, this->Z, this->Y);
+		}
+
+		
+		vec4f vec4f::XZZZ()
+		{
+			return vec4f(this->X, this->Z, this->Z, this->Z);
+		}
+
+		
+		vec4f vec4f::XZZW()
+		{
+			return vec4f(this->X, this->Z, this->Z, this->W);
+		}
+
+		
+		vec4f vec4f::XZWX()
+		{
+			return vec4f(this->X, this->Z, this->W, this->X);
+		}
+
+		
+		vec4f vec4f::XZWY()
+		{
+			return vec4f(this->X, this->Z, this->W, this->Y);
+		}
+
+		
+		vec4f vec4f::XZWZ()
+		{
+			return vec4f(this->X, this->Z, this->W, this->Z);
+		}
+
+		
+		vec4f vec4f::XZWW()
+		{
+			return vec4f(this->X, this->Z, this->W, this->W);
 		}
 
 		//////////////////////	
 
-		template<class T>
-		Vector4<T> Vector4<T>::XWXX()
+		
+		vec4f vec4f::XWXX()
 		{
-			return Vector4<T>(this->X, this->W, this->X, this->X);
+			return vec4f(this->X, this->W, this->X, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XWXY()
+		
+		vec4f vec4f::XWXY()
 		{
-			return Vector4<T>(this->X, this->W, this->X, this->Y);
+			return vec4f(this->X, this->W, this->X, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XWXZ()
+		
+		vec4f vec4f::XWXZ()
 		{
-			return Vector4<T>(this->X, this->W, this->X, this->Z);
+			return vec4f(this->X, this->W, this->X, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XWXW()
+		
+		vec4f vec4f::XWXW()
 		{
-			return Vector4<T>(this->X, this->W, this->X, this->W);
+			return vec4f(this->X, this->W, this->X, this->W);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XWYX()
+		
+		vec4f vec4f::XWYX()
 		{
-			return Vector4<T>(this->X, this->W, this->Y, this->X);
+			return vec4f(this->X, this->W, this->Y, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XWYY()
+		
+		vec4f vec4f::XWYY()
 		{
-			return Vector4<T>(this->X, this->W, this->Y, this->Y);
+			return vec4f(this->X, this->W, this->Y, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XWYZ()
+		
+		vec4f vec4f::XWYZ()
 		{
-			return Vector4<T>(this->X, this->W, this->Y, this->Z);
+			return vec4f(this->X, this->W, this->Y, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XWYW()
+		
+		vec4f vec4f::XWYW()
 		{
-			return Vector4<T>(this->X, this->W, this->Y, this->W);
+			return vec4f(this->X, this->W, this->Y, this->W);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XWZX()
+		
+		vec4f vec4f::XWZX()
 		{
-			return Vector4<T>(this->X, this->W, this->Z, this->X);
+			return vec4f(this->X, this->W, this->Z, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XWZY()
+		
+		vec4f vec4f::XWZY()
 		{
-			return Vector4<T>(this->X, this->W, this->Z, this->Y);
+			return vec4f(this->X, this->W, this->Z, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XWZZ()
+		
+		vec4f vec4f::XWZZ()
 		{
-			return Vector4<T>(this->X, this->W, this->Z, this->Z);
+			return vec4f(this->X, this->W, this->Z, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XWZW()
+		
+		vec4f vec4f::XWZW()
 		{
-			return Vector4<T>(this->X, this->W, this->Z, this->W);
+			return vec4f(this->X, this->W, this->Z, this->W);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XWWX()
+		
+		vec4f vec4f::XWWX()
 		{
-			return Vector4<T>(this->X, this->W, this->W, this->X);
+			return vec4f(this->X, this->W, this->W, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XWWY()
+		
+		vec4f vec4f::XWWY()
 		{
-			return Vector4<T>(this->X, this->W, this->W, this->Y);
+			return vec4f(this->X, this->W, this->W, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XWWZ()
+		
+		vec4f vec4f::XWWZ()
 		{
-			return Vector4<T>(this->X, this->W, this->W, this->Z);
+			return vec4f(this->X, this->W, this->W, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::XWWW()
+		
+		vec4f vec4f::XWWW()
 		{
-			return Vector4<T>(this->X, this->W, this->W, this->W);
-		}
-
-		//////////////////////
-		//////////////////////
-
-		template<class T>
-		Vector4<T> Vector4<T>::YXXX()
-		{
-			return Vector4<T>(this->Y, this->X, this->X, this->X);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::YXXY()
-		{
-			return Vector4<T>(this->Y, this->X, this->X, this->Y);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::YXXZ()
-		{
-			return Vector4<T>(this->Y, this->X, this->X, this->Z);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::YXXW()
-		{
-			return Vector4<T>(this->Y, this->X, this->X, this->W);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::YXYX()
-		{
-			return Vector4<T>(this->Y, this->X, this->Y, this->X);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::YXYY()
-		{
-			return Vector4<T>(this->Y, this->X, this->Y, this->Y);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::YXYZ()
-		{
-			return Vector4<T>(this->Y, this->X, this->Y, this->Z);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::YXYW()
-		{
-			return Vector4<T>(this->Y, this->X, this->Y, this->W);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::YXZX()
-		{
-			return Vector4<T>(this->Y, this->X, this->Z, this->X);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::YXZY()
-		{
-			return Vector4<T>(this->Y, this->X, this->Z, this->Y);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::YXZZ()
-		{
-			return Vector4<T>(this->Y, this->X, this->Z, this->Z);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::YXZW()
-		{
-			return Vector4<T>(this->Y, this->X, this->Z, this->W);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::YXWX()
-		{
-			return Vector4<T>(this->Y, this->X, this->W, this->X);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::YXWY()
-		{
-			return Vector4<T>(this->Y, this->X, this->W, this->Y);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::YXWZ()
-		{
-			return Vector4<T>(this->Y, this->X, this->W, this->Z);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::YXWW()
-		{
-			return Vector4<T>(this->Y, this->X, this->W, this->W);
+			return vec4f(this->X, this->W, this->W, this->W);
 		}
 
 		//////////////////////
+		//////////////////////
 
-		template<class T>
-		Vector4<T> Vector4<T>::YYXX()
+		
+		vec4f vec4f::YXXX()
 		{
-			return Vector4<T>(this->Y, this->Y, this->X, this->X);
+			return vec4f(this->Y, this->X, this->X, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YYXY()
+		
+		vec4f vec4f::YXXY()
 		{
-			return Vector4<T>(this->Y, this->Y, this->X, this->Y);
+			return vec4f(this->Y, this->X, this->X, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YYXZ()
+		
+		vec4f vec4f::YXXZ()
 		{
-			return Vector4<T>(this->Y, this->Y, this->X, this->Z);
+			return vec4f(this->Y, this->X, this->X, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YYXW()
+		
+		vec4f vec4f::YXXW()
 		{
-			return Vector4<T>(this->Y, this->Y, this->X, this->W);
+			return vec4f(this->Y, this->X, this->X, this->W);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YYYX()
+		
+		vec4f vec4f::YXYX()
 		{
-			return Vector4<T>(this->Y, this->Y, this->Y, this->X);
+			return vec4f(this->Y, this->X, this->Y, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YYYY()
+		
+		vec4f vec4f::YXYY()
 		{
-			return Vector4<T>(this->Y, this->Y, this->Y, this->Y);
+			return vec4f(this->Y, this->X, this->Y, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YYYZ()
+		
+		vec4f vec4f::YXYZ()
 		{
-			return Vector4<T>(this->Y, this->Y, this->Y, this->Z);
+			return vec4f(this->Y, this->X, this->Y, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YYYW()
+		
+		vec4f vec4f::YXYW()
 		{
-			return Vector4<T>(this->Y, this->Y, this->Y, this->W);
+			return vec4f(this->Y, this->X, this->Y, this->W);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YYZX()
+		
+		vec4f vec4f::YXZX()
 		{
-			return Vector4<T>(this->Y, this->Y, this->Z, this->X);
+			return vec4f(this->Y, this->X, this->Z, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YYZY()
+		
+		vec4f vec4f::YXZY()
 		{
-			return Vector4<T>(this->Y, this->Y, this->Z, this->Y);
+			return vec4f(this->Y, this->X, this->Z, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YYZZ()
+		
+		vec4f vec4f::YXZZ()
 		{
-			return Vector4<T>(this->Y, this->Y, this->Z, this->Z);
+			return vec4f(this->Y, this->X, this->Z, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YYZW()
+		
+		vec4f vec4f::YXZW()
 		{
-			return Vector4<T>(this->Y, this->Y, this->Z, this->W);
+			return vec4f(this->Y, this->X, this->Z, this->W);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YYWX()
+		
+		vec4f vec4f::YXWX()
 		{
-			return Vector4<T>(this->Y, this->Y, this->W, this->X);
+			return vec4f(this->Y, this->X, this->W, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YYWY()
+		
+		vec4f vec4f::YXWY()
 		{
-			return Vector4<T>(this->Y, this->Y, this->W, this->Y);
+			return vec4f(this->Y, this->X, this->W, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YYWZ()
+		
+		vec4f vec4f::YXWZ()
 		{
-			return Vector4<T>(this->Y, this->Y, this->W, this->Z);
+			return vec4f(this->Y, this->X, this->W, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YYWW()
+		
+		vec4f vec4f::YXWW()
 		{
-			return Vector4<T>(this->Y, this->Y, this->W, this->W);
+			return vec4f(this->Y, this->X, this->W, this->W);
 		}
 
 		//////////////////////
 
-		template<class T>
-		Vector4<T> Vector4<T>::YZXX()
+		
+		vec4f vec4f::YYXX()
 		{
-			return Vector4<T>(this->Y, this->Z, this->X, this->X);
+			return vec4f(this->Y, this->Y, this->X, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YZXY()
+		
+		vec4f vec4f::YYXY()
 		{
-			return Vector4<T>(this->Y, this->Z, this->X, this->Y);
+			return vec4f(this->Y, this->Y, this->X, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YZXZ()
+		
+		vec4f vec4f::YYXZ()
 		{
-			return Vector4<T>(this->Y, this->Z, this->X, this->Z);
+			return vec4f(this->Y, this->Y, this->X, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YZXW()
+		
+		vec4f vec4f::YYXW()
 		{
-			return Vector4<T>(this->Y, this->Z, this->X, this->W);
+			return vec4f(this->Y, this->Y, this->X, this->W);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YZYX()
+		
+		vec4f vec4f::YYYX()
 		{
-			return Vector4<T>(this->Y, this->Z, this->Y, this->X);
+			return vec4f(this->Y, this->Y, this->Y, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YZYY()
+		
+		vec4f vec4f::YYYY()
 		{
-			return Vector4<T>(this->Y, this->Z, this->Y, this->Y);
+			return vec4f(this->Y, this->Y, this->Y, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YZYZ()
+		
+		vec4f vec4f::YYYZ()
 		{
-			return Vector4<T>(this->Y, this->Z, this->Y, this->Z);
+			return vec4f(this->Y, this->Y, this->Y, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YZYW()
+		
+		vec4f vec4f::YYYW()
 		{
-			return Vector4<T>(this->Y, this->Z, this->Y, this->W);
+			return vec4f(this->Y, this->Y, this->Y, this->W);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YZZX()
+		
+		vec4f vec4f::YYZX()
 		{
-			return Vector4<T>(this->Y, this->Z, this->Z, this->X);
+			return vec4f(this->Y, this->Y, this->Z, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YZZY()
+		
+		vec4f vec4f::YYZY()
 		{
-			return Vector4<T>(this->Y, this->Z, this->Z, this->Y);
+			return vec4f(this->Y, this->Y, this->Z, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YZZZ()
+		
+		vec4f vec4f::YYZZ()
 		{
-			return Vector4<T>(this->Y, this->Z, this->Z, this->Z);
+			return vec4f(this->Y, this->Y, this->Z, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YZZW()
+		
+		vec4f vec4f::YYZW()
 		{
-			return Vector4<T>(this->Y, this->Z, this->Z, this->W);
+			return vec4f(this->Y, this->Y, this->Z, this->W);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YZWX()
+		
+		vec4f vec4f::YYWX()
 		{
-			return Vector4<T>(this->Y, this->Z, this->W, this->X);
+			return vec4f(this->Y, this->Y, this->W, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YZWY()
+		
+		vec4f vec4f::YYWY()
 		{
-			return Vector4<T>(this->Y, this->Z, this->W, this->Y);
+			return vec4f(this->Y, this->Y, this->W, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YZWZ()
+		
+		vec4f vec4f::YYWZ()
 		{
-			return Vector4<T>(this->Y, this->Z, this->W, this->Z);
+			return vec4f(this->Y, this->Y, this->W, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YZWW()
+		
+		vec4f vec4f::YYWW()
 		{
-			return Vector4<T>(this->Y, this->Z, this->W, this->W);
+			return vec4f(this->Y, this->Y, this->W, this->W);
+		}
+
+		//////////////////////
+
+		
+		vec4f vec4f::YZXX()
+		{
+			return vec4f(this->Y, this->Z, this->X, this->X);
+		}
+
+		
+		vec4f vec4f::YZXY()
+		{
+			return vec4f(this->Y, this->Z, this->X, this->Y);
+		}
+
+		
+		vec4f vec4f::YZXZ()
+		{
+			return vec4f(this->Y, this->Z, this->X, this->Z);
+		}
+
+		
+		vec4f vec4f::YZXW()
+		{
+			return vec4f(this->Y, this->Z, this->X, this->W);
+		}
+
+		
+		vec4f vec4f::YZYX()
+		{
+			return vec4f(this->Y, this->Z, this->Y, this->X);
+		}
+
+		
+		vec4f vec4f::YZYY()
+		{
+			return vec4f(this->Y, this->Z, this->Y, this->Y);
+		}
+
+		
+		vec4f vec4f::YZYZ()
+		{
+			return vec4f(this->Y, this->Z, this->Y, this->Z);
+		}
+
+		
+		vec4f vec4f::YZYW()
+		{
+			return vec4f(this->Y, this->Z, this->Y, this->W);
+		}
+
+		
+		vec4f vec4f::YZZX()
+		{
+			return vec4f(this->Y, this->Z, this->Z, this->X);
+		}
+
+		
+		vec4f vec4f::YZZY()
+		{
+			return vec4f(this->Y, this->Z, this->Z, this->Y);
+		}
+
+		
+		vec4f vec4f::YZZZ()
+		{
+			return vec4f(this->Y, this->Z, this->Z, this->Z);
+		}
+
+		
+		vec4f vec4f::YZZW()
+		{
+			return vec4f(this->Y, this->Z, this->Z, this->W);
+		}
+
+		
+		vec4f vec4f::YZWX()
+		{
+			return vec4f(this->Y, this->Z, this->W, this->X);
+		}
+
+		
+		vec4f vec4f::YZWY()
+		{
+			return vec4f(this->Y, this->Z, this->W, this->Y);
+		}
+
+		
+		vec4f vec4f::YZWZ()
+		{
+			return vec4f(this->Y, this->Z, this->W, this->Z);
+		}
+
+		
+		vec4f vec4f::YZWW()
+		{
+			return vec4f(this->Y, this->Z, this->W, this->W);
 		}
 
 		//////////////////////	
 
-		template<class T>
-		Vector4<T> Vector4<T>::YWXX()
+		
+		vec4f vec4f::YWXX()
 		{
-			return Vector4<T>(this->Y, this->W, this->X, this->X);
+			return vec4f(this->Y, this->W, this->X, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YWXY()
+		
+		vec4f vec4f::YWXY()
 		{
-			return Vector4<T>(this->Y, this->W, this->X, this->Y);
+			return vec4f(this->Y, this->W, this->X, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YWXZ()
+		
+		vec4f vec4f::YWXZ()
 		{
-			return Vector4<T>(this->Y, this->W, this->X, this->Z);
+			return vec4f(this->Y, this->W, this->X, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YWXW()
+		
+		vec4f vec4f::YWXW()
 		{
-			return Vector4<T>(this->Y, this->W, this->X, this->W);
-		}
-
-
-		template<class T>
-		Vector4<T> Vector4<T>::YWYX()
-		{
-			return Vector4<T>(this->Y, this->W, this->Y, this->X);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::YWYY()
-		{
-			return Vector4<T>(this->Y, this->W, this->Y, this->Y);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::YWYZ()
-		{
-			return Vector4<T>(this->Y, this->W, this->Y, this->Z);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::YWYW()
-		{
-			return Vector4<T>(this->Y, this->W, this->Y, this->W);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::YWZX()
-		{
-			return Vector4<T>(this->Y, this->W, this->Z, this->X);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::YWZY()
-		{
-			return Vector4<T>(this->Y, this->W, this->Z, this->Y);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::YWZZ()
-		{
-			return Vector4<T>(this->Y, this->W, this->Z, this->Z);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::YWZW()
-		{
-			return Vector4<T>(this->Y, this->W, this->Z, this->W);
+			return vec4f(this->Y, this->W, this->X, this->W);
 		}
 
 
-		template<class T>
-		Vector4<T> Vector4<T>::YWWX()
+		
+		vec4f vec4f::YWYX()
 		{
-			return Vector4<T>(this->Y, this->W, this->W, this->X);
+			return vec4f(this->Y, this->W, this->Y, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YWWY()
+		
+		vec4f vec4f::YWYY()
 		{
-			return Vector4<T>(this->Y, this->W, this->W, this->Y);
+			return vec4f(this->Y, this->W, this->Y, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YWWZ()
+		
+		vec4f vec4f::YWYZ()
 		{
-			return Vector4<T>(this->Y, this->W, this->W, this->Z);
+			return vec4f(this->Y, this->W, this->Y, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::YWWW()
+		
+		vec4f vec4f::YWYW()
 		{
-			return Vector4<T>(this->Y, this->W, this->W, this->W);
+			return vec4f(this->Y, this->W, this->Y, this->W);
+		}
+
+		
+		vec4f vec4f::YWZX()
+		{
+			return vec4f(this->Y, this->W, this->Z, this->X);
+		}
+
+		
+		vec4f vec4f::YWZY()
+		{
+			return vec4f(this->Y, this->W, this->Z, this->Y);
+		}
+
+		
+		vec4f vec4f::YWZZ()
+		{
+			return vec4f(this->Y, this->W, this->Z, this->Z);
+		}
+
+		
+		vec4f vec4f::YWZW()
+		{
+			return vec4f(this->Y, this->W, this->Z, this->W);
+		}
+
+
+		
+		vec4f vec4f::YWWX()
+		{
+			return vec4f(this->Y, this->W, this->W, this->X);
+		}
+
+		
+		vec4f vec4f::YWWY()
+		{
+			return vec4f(this->Y, this->W, this->W, this->Y);
+		}
+
+		
+		vec4f vec4f::YWWZ()
+		{
+			return vec4f(this->Y, this->W, this->W, this->Z);
+		}
+
+		
+		vec4f vec4f::YWWW()
+		{
+			return vec4f(this->Y, this->W, this->W, this->W);
 		}
 
 
 		//////////////////////
 		//////////////////////
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZXXX()
+		
+		vec4f vec4f::ZXXX()
 		{
-			return Vector4<T>(this->Z, this->X, this->X, this->X);
+			return vec4f(this->Z, this->X, this->X, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZXXY()
+		
+		vec4f vec4f::ZXXY()
 		{
-			return Vector4<T>(this->Z, this->X, this->X, this->Y);
+			return vec4f(this->Z, this->X, this->X, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZXXZ()
+		
+		vec4f vec4f::ZXXZ()
 		{
-			return Vector4<T>(this->Z, this->X, this->X, this->Z);
+			return vec4f(this->Z, this->X, this->X, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZXXW()
+		
+		vec4f vec4f::ZXXW()
 		{
-			return Vector4<T>(this->Z, this->X, this->X, this->W);
+			return vec4f(this->Z, this->X, this->X, this->W);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZXYX()
+		
+		vec4f vec4f::ZXYX()
 		{
-			return Vector4<T>(this->Z, this->X, this->Y, this->X);
+			return vec4f(this->Z, this->X, this->Y, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZXYY()
+		
+		vec4f vec4f::ZXYY()
 		{
-			return Vector4<T>(this->Z, this->X, this->Y, this->Y);
+			return vec4f(this->Z, this->X, this->Y, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZXYZ()
+		
+		vec4f vec4f::ZXYZ()
 		{
-			return Vector4<T>(this->Z, this->X, this->Y, this->Z);
+			return vec4f(this->Z, this->X, this->Y, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZXYW()
+		
+		vec4f vec4f::ZXYW()
 		{
-			return Vector4<T>(this->Z, this->X, this->Y, this->W);
+			return vec4f(this->Z, this->X, this->Y, this->W);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZXZX()
+		
+		vec4f vec4f::ZXZX()
 		{
-			return Vector4<T>(this->Z, this->X, this->Z, this->X);
+			return vec4f(this->Z, this->X, this->Z, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZXZY()
+		
+		vec4f vec4f::ZXZY()
 		{
-			return Vector4<T>(this->Z, this->X, this->Z, this->Y);
+			return vec4f(this->Z, this->X, this->Z, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZXZZ()
+		
+		vec4f vec4f::ZXZZ()
 		{
-			return Vector4<T>(this->Z, this->X, this->Z, this->Z);
+			return vec4f(this->Z, this->X, this->Z, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZXZW()
+		
+		vec4f vec4f::ZXZW()
 		{
-			return Vector4<T>(this->Z, this->X, this->Z, this->W);
+			return vec4f(this->Z, this->X, this->Z, this->W);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZXWX()
+		
+		vec4f vec4f::ZXWX()
 		{
-			return Vector4<T>(this->Z, this->X, this->W, this->X);
+			return vec4f(this->Z, this->X, this->W, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZXWY()
+		
+		vec4f vec4f::ZXWY()
 		{
-			return Vector4<T>(this->Z, this->X, this->W, this->Y);
+			return vec4f(this->Z, this->X, this->W, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZXWZ()
+		
+		vec4f vec4f::ZXWZ()
 		{
-			return Vector4<T>(this->Z, this->X, this->W, this->Z);
+			return vec4f(this->Z, this->X, this->W, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZXWW()
+		
+		vec4f vec4f::ZXWW()
 		{
-			return Vector4<T>(this->Z, this->X, this->W, this->W);
-		}
-
-		//////////////////////
-
-		template<class T>
-		Vector4<T> Vector4<T>::ZYXX()
-		{
-			return Vector4<T>(this->Z, this->Y, this->X, this->X);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::ZYXY()
-		{
-			return Vector4<T>(this->Z, this->Y, this->X, this->Y);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::ZYXZ()
-		{
-			return Vector4<T>(this->Z, this->Y, this->X, this->Z);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::ZYXW()
-		{
-			return Vector4<T>(this->Z, this->Y, this->X, this->W);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::ZYYX()
-		{
-			return Vector4<T>(this->Z, this->Y, this->Y, this->X);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::ZYYY()
-		{
-			return Vector4<T>(this->Z, this->Y, this->Y, this->Y);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::ZYYZ()
-		{
-			return Vector4<T>(this->Z, this->Y, this->Y, this->Z);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::ZYYW()
-		{
-			return Vector4<T>(this->Z, this->Y, this->Y, this->W);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::ZYZX()
-		{
-			return Vector4<T>(this->Z, this->Y, this->Z, this->X);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::ZYZY()
-		{
-			return Vector4<T>(this->Z, this->Y, this->Z, this->Y);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::ZYZZ()
-		{
-			return Vector4<T>(this->Z, this->Y, this->Z, this->Z);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::ZYZW()
-		{
-			return Vector4<T>(this->Z, this->Y, this->Z, this->W);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::ZYWX()
-		{
-			return Vector4<T>(this->Z, this->Y, this->W, this->X);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::ZYWY()
-		{
-			return Vector4<T>(this->Z, this->Y, this->W, this->Y);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::ZYWZ()
-		{
-			return Vector4<T>(this->Z, this->Y, this->W, this->Z);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::ZYWW()
-		{
-			return Vector4<T>(this->Z, this->Y, this->W, this->W);
+			return vec4f(this->Z, this->X, this->W, this->W);
 		}
 
 		//////////////////////
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZZXX()
+		
+		vec4f vec4f::ZYXX()
 		{
-			return Vector4<T>(this->Z, this->Z, this->X, this->X);
+			return vec4f(this->Z, this->Y, this->X, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZZXY()
+		
+		vec4f vec4f::ZYXY()
 		{
-			return Vector4<T>(this->Z, this->Z, this->X, this->Y);
+			return vec4f(this->Z, this->Y, this->X, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZZXZ()
+		
+		vec4f vec4f::ZYXZ()
 		{
-			return Vector4<T>(this->Z, this->Z, this->X, this->Z);
+			return vec4f(this->Z, this->Y, this->X, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZZXW()
+		
+		vec4f vec4f::ZYXW()
 		{
-			return Vector4<T>(this->Z, this->Z, this->X, this->W);
+			return vec4f(this->Z, this->Y, this->X, this->W);
+		}
+
+		
+		vec4f vec4f::ZYYX()
+		{
+			return vec4f(this->Z, this->Y, this->Y, this->X);
+		}
+
+		
+		vec4f vec4f::ZYYY()
+		{
+			return vec4f(this->Z, this->Y, this->Y, this->Y);
+		}
+
+		
+		vec4f vec4f::ZYYZ()
+		{
+			return vec4f(this->Z, this->Y, this->Y, this->Z);
+		}
+
+		
+		vec4f vec4f::ZYYW()
+		{
+			return vec4f(this->Z, this->Y, this->Y, this->W);
+		}
+
+		
+		vec4f vec4f::ZYZX()
+		{
+			return vec4f(this->Z, this->Y, this->Z, this->X);
+		}
+
+		
+		vec4f vec4f::ZYZY()
+		{
+			return vec4f(this->Z, this->Y, this->Z, this->Y);
+		}
+
+		
+		vec4f vec4f::ZYZZ()
+		{
+			return vec4f(this->Z, this->Y, this->Z, this->Z);
+		}
+
+		
+		vec4f vec4f::ZYZW()
+		{
+			return vec4f(this->Z, this->Y, this->Z, this->W);
+		}
+
+		
+		vec4f vec4f::ZYWX()
+		{
+			return vec4f(this->Z, this->Y, this->W, this->X);
+		}
+
+		
+		vec4f vec4f::ZYWY()
+		{
+			return vec4f(this->Z, this->Y, this->W, this->Y);
+		}
+
+		
+		vec4f vec4f::ZYWZ()
+		{
+			return vec4f(this->Z, this->Y, this->W, this->Z);
+		}
+
+		
+		vec4f vec4f::ZYWW()
+		{
+			return vec4f(this->Z, this->Y, this->W, this->W);
+		}
+
+		//////////////////////
+
+		
+		vec4f vec4f::ZZXX()
+		{
+			return vec4f(this->Z, this->Z, this->X, this->X);
+		}
+
+		
+		vec4f vec4f::ZZXY()
+		{
+			return vec4f(this->Z, this->Z, this->X, this->Y);
+		}
+
+		
+		vec4f vec4f::ZZXZ()
+		{
+			return vec4f(this->Z, this->Z, this->X, this->Z);
+		}
+
+		
+		vec4f vec4f::ZZXW()
+		{
+			return vec4f(this->Z, this->Z, this->X, this->W);
 		}
 
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZZYX()
+		
+		vec4f vec4f::ZZYX()
 		{
-			return Vector4<T>(this->Z, this->Z, this->Y, this->X);
+			return vec4f(this->Z, this->Z, this->Y, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZZYY()
+		
+		vec4f vec4f::ZZYY()
 		{
-			return Vector4<T>(this->Z, this->Z, this->Y, this->Y);
+			return vec4f(this->Z, this->Z, this->Y, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZZYZ()
+		
+		vec4f vec4f::ZZYZ()
 		{
-			return Vector4<T>(this->Z, this->Z, this->Y, this->Z);
+			return vec4f(this->Z, this->Z, this->Y, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZZYW()
+		
+		vec4f vec4f::ZZYW()
 		{
-			return Vector4<T>(this->Z, this->Z, this->Y, this->W);
+			return vec4f(this->Z, this->Z, this->Y, this->W);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZZZX()
+		
+		vec4f vec4f::ZZZX()
 		{
-			return Vector4<T>(this->Z, this->Z, this->Z, this->X);
+			return vec4f(this->Z, this->Z, this->Z, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZZZY()
+		
+		vec4f vec4f::ZZZY()
 		{
-			return Vector4<T>(this->Z, this->Z, this->Z, this->Y);
+			return vec4f(this->Z, this->Z, this->Z, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZZZZ()
+		
+		vec4f vec4f::ZZZZ()
 		{
-			return Vector4<T>(this->Z, this->Z, this->Z, this->Z);
+			return vec4f(this->Z, this->Z, this->Z, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZZZW()
+		
+		vec4f vec4f::ZZZW()
 		{
-			return Vector4<T>(this->Z, this->Z, this->Z, this->W);
+			return vec4f(this->Z, this->Z, this->Z, this->W);
 		}
 
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZZWX()
+		
+		vec4f vec4f::ZZWX()
 		{
-			return Vector4<T>(this->Z, this->Z, this->W, this->X);
+			return vec4f(this->Z, this->Z, this->W, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZZWY()
+		
+		vec4f vec4f::ZZWY()
 		{
-			return Vector4<T>(this->Z, this->Z, this->W, this->Y);
+			return vec4f(this->Z, this->Z, this->W, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZZWZ()
+		
+		vec4f vec4f::ZZWZ()
 		{
-			return Vector4<T>(this->Z, this->Z, this->W, this->Z);
+			return vec4f(this->Z, this->Z, this->W, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZZWW()
+		
+		vec4f vec4f::ZZWW()
 		{
-			return Vector4<T>(this->Z, this->Z, this->W, this->W);
+			return vec4f(this->Z, this->Z, this->W, this->W);
 		}
 
 		//////////////////////	
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZWXX()
+		
+		vec4f vec4f::ZWXX()
 		{
-			return Vector4<T>(this->Z, this->W, this->X, this->X);
+			return vec4f(this->Z, this->W, this->X, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZWXY()
+		
+		vec4f vec4f::ZWXY()
 		{
-			return Vector4<T>(this->Z, this->W, this->X, this->Y);
+			return vec4f(this->Z, this->W, this->X, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZWXZ()
+		
+		vec4f vec4f::ZWXZ()
 		{
-			return Vector4<T>(this->Z, this->W, this->X, this->Z);
+			return vec4f(this->Z, this->W, this->X, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZWXW()
+		
+		vec4f vec4f::ZWXW()
 		{
-			return Vector4<T>(this->Z, this->W, this->X, this->W);
-		}
-
-
-		template<class T>
-		Vector4<T> Vector4<T>::ZWYX()
-		{
-			return Vector4<T>(this->Z, this->W, this->Y, this->X);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::ZWYY()
-		{
-			return Vector4<T>(this->Z, this->W, this->Y, this->Y);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::ZWYZ()
-		{
-			return Vector4<T>(this->Z, this->W, this->Y, this->Z);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::ZWYW()
-		{
-			return Vector4<T>(this->Z, this->W, this->Y, this->W);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::ZWZX()
-		{
-			return Vector4<T>(this->Z, this->W, this->Z, this->X);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::ZWZY()
-		{
-			return Vector4<T>(this->Z, this->W, this->Z, this->Y);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::ZWZZ()
-		{
-			return Vector4<T>(this->Z, this->W, this->Z, this->Z);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::ZWZW()
-		{
-			return Vector4<T>(this->Z, this->W, this->Z, this->W);
+			return vec4f(this->Z, this->W, this->X, this->W);
 		}
 
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZWWX()
+		
+		vec4f vec4f::ZWYX()
 		{
-			return Vector4<T>(this->Z, this->W, this->W, this->X);
+			return vec4f(this->Z, this->W, this->Y, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZWWY()
+		
+		vec4f vec4f::ZWYY()
 		{
-			return Vector4<T>(this->Z, this->W, this->W, this->Y);
+			return vec4f(this->Z, this->W, this->Y, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZWWZ()
+		
+		vec4f vec4f::ZWYZ()
 		{
-			return Vector4<T>(this->Z, this->W, this->W, this->Z);
+			return vec4f(this->Z, this->W, this->Y, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::ZWWW()
+		
+		vec4f vec4f::ZWYW()
 		{
-			return Vector4<T>(this->Z, this->W, this->W, this->W);
+			return vec4f(this->Z, this->W, this->Y, this->W);
 		}
 
-		//////////////////////
-		//////////////////////
-
-		template<class T>
-		Vector4<T> Vector4<T>::WXXX()
+		
+		vec4f vec4f::ZWZX()
 		{
-			return Vector4<T>(this->W, this->X, this->X, this->X);
+			return vec4f(this->Z, this->W, this->Z, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WXXY()
+		
+		vec4f vec4f::ZWZY()
 		{
-			return Vector4<T>(this->W, this->X, this->X, this->Y);
+			return vec4f(this->Z, this->W, this->Z, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WXXZ()
+		
+		vec4f vec4f::ZWZZ()
 		{
-			return Vector4<T>(this->W, this->X, this->X, this->Z);
+			return vec4f(this->Z, this->W, this->Z, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WXXW()
+		
+		vec4f vec4f::ZWZW()
 		{
-			return Vector4<T>(this->W, this->X, this->X, this->W);
+			return vec4f(this->Z, this->W, this->Z, this->W);
 		}
 
 
-
-		template<class T>
-		Vector4<T> Vector4<T>::WXYX()
+		
+		vec4f vec4f::ZWWX()
 		{
-			return Vector4<T>(this->W, this->X, this->Y, this->X);
+			return vec4f(this->Z, this->W, this->W, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WXYY()
+		
+		vec4f vec4f::ZWWY()
 		{
-			return Vector4<T>(this->W, this->X, this->Y, this->Y);
+			return vec4f(this->Z, this->W, this->W, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WXYZ()
+		
+		vec4f vec4f::ZWWZ()
 		{
-			return Vector4<T>(this->W, this->X, this->Y, this->Z);
+			return vec4f(this->Z, this->W, this->W, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WXYW()
+		
+		vec4f vec4f::ZWWW()
 		{
-			return Vector4<T>(this->W, this->X, this->Y, this->W);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::WXZX()
-		{
-			return Vector4<T>(this->W, this->X, this->Z, this->X);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::WXZY()
-		{
-			return Vector4<T>(this->W, this->X, this->Z, this->Y);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::WXZZ()
-		{
-			return Vector4<T>(this->W, this->X, this->Z, this->Z);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::WXZW()
-		{
-			return Vector4<T>(this->W, this->X, this->Z, this->W);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::WXWX()
-		{
-			return Vector4<T>(this->W, this->X, this->W, this->X);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::WXWY()
-		{
-			return Vector4<T>(this->W, this->X, this->W, this->Y);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::WXWZ()
-		{
-			return Vector4<T>(this->W, this->X, this->W, this->Z);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::WXWW()
-		{
-			return Vector4<T>(this->W, this->X, this->W, this->W);
+			return vec4f(this->Z, this->W, this->W, this->W);
 		}
 
 		//////////////////////
+		//////////////////////
 
-		template<class T>
-		Vector4<T> Vector4<T>::WYXX()
+		
+		vec4f vec4f::WXXX()
 		{
-			return Vector4<T>(this->W, this->Y, this->X, this->X);
+			return vec4f(this->W, this->X, this->X, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WYXY()
+		
+		vec4f vec4f::WXXY()
 		{
-			return Vector4<T>(this->W, this->Y, this->X, this->Y);
+			return vec4f(this->W, this->X, this->X, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WYXZ()
+		
+		vec4f vec4f::WXXZ()
 		{
-			return Vector4<T>(this->W, this->Y, this->X, this->Z);
+			return vec4f(this->W, this->X, this->X, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WYXW()
+		
+		vec4f vec4f::WXXW()
 		{
-			return Vector4<T>(this->W, this->Y, this->X, this->W);
+			return vec4f(this->W, this->X, this->X, this->W);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WYYX()
+
+
+		
+		vec4f vec4f::WXYX()
 		{
-			return Vector4<T>(this->W, this->Y, this->Y, this->X);
+			return vec4f(this->W, this->X, this->Y, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WYYY()
+		
+		vec4f vec4f::WXYY()
 		{
-			return Vector4<T>(this->W, this->Y, this->Y, this->Y);
+			return vec4f(this->W, this->X, this->Y, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WYYZ()
+		
+		vec4f vec4f::WXYZ()
 		{
-			return Vector4<T>(this->W, this->Y, this->Y, this->Z);
+			return vec4f(this->W, this->X, this->Y, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WYYW()
+		
+		vec4f vec4f::WXYW()
 		{
-			return Vector4<T>(this->W, this->Y, this->Y, this->W);
+			return vec4f(this->W, this->X, this->Y, this->W);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WYZX()
+		
+		vec4f vec4f::WXZX()
 		{
-			return Vector4<T>(this->W, this->Y, this->Z, this->X);
+			return vec4f(this->W, this->X, this->Z, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WYZY()
+		
+		vec4f vec4f::WXZY()
 		{
-			return Vector4<T>(this->W, this->Y, this->Z, this->Y);
+			return vec4f(this->W, this->X, this->Z, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WYZZ()
+		
+		vec4f vec4f::WXZZ()
 		{
-			return Vector4<T>(this->W, this->Y, this->Z, this->Z);
+			return vec4f(this->W, this->X, this->Z, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WYZW()
+		
+		vec4f vec4f::WXZW()
 		{
-			return Vector4<T>(this->W, this->Y, this->Z, this->W);
+			return vec4f(this->W, this->X, this->Z, this->W);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WYWX()
+		
+		vec4f vec4f::WXWX()
 		{
-			return Vector4<T>(this->W, this->Y, this->W, this->X);
+			return vec4f(this->W, this->X, this->W, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WYWY()
+		
+		vec4f vec4f::WXWY()
 		{
-			return Vector4<T>(this->W, this->Y, this->W, this->Y);
+			return vec4f(this->W, this->X, this->W, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WYWZ()
+		
+		vec4f vec4f::WXWZ()
 		{
-			return Vector4<T>(this->W, this->Y, this->W, this->Z);
+			return vec4f(this->W, this->X, this->W, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WYWW()
+		
+		vec4f vec4f::WXWW()
 		{
-			return Vector4<T>(this->W, this->Y, this->W, this->W);
+			return vec4f(this->W, this->X, this->W, this->W);
 		}
 
 		//////////////////////
 
-		template<class T>
-		Vector4<T> Vector4<T>::WZXX()
+		
+		vec4f vec4f::WYXX()
 		{
-			return Vector4<T>(this->W, this->Z, this->X, this->X);
+			return vec4f(this->W, this->Y, this->X, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WZXY()
+		
+		vec4f vec4f::WYXY()
 		{
-			return Vector4<T>(this->W, this->Z, this->X, this->Y);
+			return vec4f(this->W, this->Y, this->X, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WZXZ()
+		
+		vec4f vec4f::WYXZ()
 		{
-			return Vector4<T>(this->W, this->Z, this->X, this->Z);
+			return vec4f(this->W, this->Y, this->X, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WZXW()
+		
+		vec4f vec4f::WYXW()
 		{
-			return Vector4<T>(this->W, this->Z, this->X, this->W);
+			return vec4f(this->W, this->Y, this->X, this->W);
+		}
+
+		
+		vec4f vec4f::WYYX()
+		{
+			return vec4f(this->W, this->Y, this->Y, this->X);
+		}
+
+		
+		vec4f vec4f::WYYY()
+		{
+			return vec4f(this->W, this->Y, this->Y, this->Y);
+		}
+
+		
+		vec4f vec4f::WYYZ()
+		{
+			return vec4f(this->W, this->Y, this->Y, this->Z);
+		}
+
+		
+		vec4f vec4f::WYYW()
+		{
+			return vec4f(this->W, this->Y, this->Y, this->W);
+		}
+
+		
+		vec4f vec4f::WYZX()
+		{
+			return vec4f(this->W, this->Y, this->Z, this->X);
+		}
+
+		
+		vec4f vec4f::WYZY()
+		{
+			return vec4f(this->W, this->Y, this->Z, this->Y);
+		}
+
+		
+		vec4f vec4f::WYZZ()
+		{
+			return vec4f(this->W, this->Y, this->Z, this->Z);
+		}
+
+		
+		vec4f vec4f::WYZW()
+		{
+			return vec4f(this->W, this->Y, this->Z, this->W);
+		}
+
+		
+		vec4f vec4f::WYWX()
+		{
+			return vec4f(this->W, this->Y, this->W, this->X);
+		}
+
+		
+		vec4f vec4f::WYWY()
+		{
+			return vec4f(this->W, this->Y, this->W, this->Y);
+		}
+
+		
+		vec4f vec4f::WYWZ()
+		{
+			return vec4f(this->W, this->Y, this->W, this->Z);
+		}
+
+		
+		vec4f vec4f::WYWW()
+		{
+			return vec4f(this->W, this->Y, this->W, this->W);
+		}
+
+		//////////////////////
+
+		
+		vec4f vec4f::WZXX()
+		{
+			return vec4f(this->W, this->Z, this->X, this->X);
+		}
+
+		
+		vec4f vec4f::WZXY()
+		{
+			return vec4f(this->W, this->Z, this->X, this->Y);
+		}
+
+		
+		vec4f vec4f::WZXZ()
+		{
+			return vec4f(this->W, this->Z, this->X, this->Z);
+		}
+
+		
+		vec4f vec4f::WZXW()
+		{
+			return vec4f(this->W, this->Z, this->X, this->W);
 		}
 
 
-		template<class T>
-		Vector4<T> Vector4<T>::WZYX()
+		
+		vec4f vec4f::WZYX()
 		{
-			return Vector4<T>(this->W, this->Z, this->Y, this->X);
+			return vec4f(this->W, this->Z, this->Y, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WZYY()
+		
+		vec4f vec4f::WZYY()
 		{
-			return Vector4<T>(this->W, this->Z, this->Y, this->Y);
+			return vec4f(this->W, this->Z, this->Y, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WZYZ()
+		
+		vec4f vec4f::WZYZ()
 		{
-			return Vector4<T>(this->W, this->Z, this->Y, this->Z);
+			return vec4f(this->W, this->Z, this->Y, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WZYW()
+		
+		vec4f vec4f::WZYW()
 		{
-			return Vector4<T>(this->W, this->Z, this->Y, this->W);
-		}
-
-
-
-		template<class T>
-		Vector4<T> Vector4<T>::WZZX()
-		{
-			return Vector4<T>(this->W, this->Z, this->Z, this->X);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::WZZY()
-		{
-			return Vector4<T>(this->W, this->Z, this->Z, this->Y);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::WZZZ()
-		{
-			return Vector4<T>(this->W, this->Z, this->Z, this->Z);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::WZZW()
-		{
-			return Vector4<T>(this->W, this->Z, this->Z, this->W);
+			return vec4f(this->W, this->Z, this->Y, this->W);
 		}
 
 
-		template<class T>
-		Vector4<T> Vector4<T>::WZWX()
+
+		
+		vec4f vec4f::WZZX()
 		{
-			return Vector4<T>(this->W, this->Z, this->W, this->X);
+			return vec4f(this->W, this->Z, this->Z, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WZWY()
+		
+		vec4f vec4f::WZZY()
 		{
-			return Vector4<T>(this->W, this->Z, this->W, this->Y);
+			return vec4f(this->W, this->Z, this->Z, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WZWZ()
+		
+		vec4f vec4f::WZZZ()
 		{
-			return Vector4<T>(this->W, this->Z, this->W, this->Z);
+			return vec4f(this->W, this->Z, this->Z, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WZWW()
+		
+		vec4f vec4f::WZZW()
 		{
-			return Vector4<T>(this->W, this->Z, this->W, this->W);
+			return vec4f(this->W, this->Z, this->Z, this->W);
+		}
+
+
+		
+		vec4f vec4f::WZWX()
+		{
+			return vec4f(this->W, this->Z, this->W, this->X);
+		}
+
+		
+		vec4f vec4f::WZWY()
+		{
+			return vec4f(this->W, this->Z, this->W, this->Y);
+		}
+
+		
+		vec4f vec4f::WZWZ()
+		{
+			return vec4f(this->W, this->Z, this->W, this->Z);
+		}
+
+		
+		vec4f vec4f::WZWW()
+		{
+			return vec4f(this->W, this->Z, this->W, this->W);
 		}
 
 		//////////////////////	
 
-		template<class T>
-		Vector4<T> Vector4<T>::WWXX()
+		
+		vec4f vec4f::WWXX()
 		{
-			return Vector4<T>(this->W, this->W, this->X, this->X);
+			return vec4f(this->W, this->W, this->X, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WWXY()
+		
+		vec4f vec4f::WWXY()
 		{
-			return Vector4<T>(this->W, this->W, this->X, this->Y);
+			return vec4f(this->W, this->W, this->X, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WWXZ()
+		
+		vec4f vec4f::WWXZ()
 		{
-			return Vector4<T>(this->W, this->W, this->X, this->Z);
+			return vec4f(this->W, this->W, this->X, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WWXW()
+		
+		vec4f vec4f::WWXW()
 		{
-			return Vector4<T>(this->W, this->W, this->X, this->W);
-		}
-
-
-		template<class T>
-		Vector4<T> Vector4<T>::WWYX()
-		{
-			return Vector4<T>(this->W, this->W, this->Y, this->X);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::WWYY()
-		{
-			return Vector4<T>(this->W, this->W, this->Y, this->Y);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::WWYZ()
-		{
-			return Vector4<T>(this->W, this->W, this->Y, this->Z);
-		}
-
-		template<class T>
-		Vector4<T> Vector4<T>::WWYW()
-		{
-			return Vector4<T>(this->W, this->W, this->Y, this->W);
+			return vec4f(this->W, this->W, this->X, this->W);
 		}
 
 
-
-		template<class T>
-		Vector4<T> Vector4<T>::WWZX()
+		
+		vec4f vec4f::WWYX()
 		{
-			return Vector4<T>(this->W, this->W, this->Z, this->X);
+			return vec4f(this->W, this->W, this->Y, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WWZY()
+		
+		vec4f vec4f::WWYY()
 		{
-			return Vector4<T>(this->W, this->W, this->Z, this->Y);
+			return vec4f(this->W, this->W, this->Y, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WWZZ()
+		
+		vec4f vec4f::WWYZ()
 		{
-			return Vector4<T>(this->W, this->W, this->Z, this->Z);
+			return vec4f(this->W, this->W, this->Y, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WWZW()
+		
+		vec4f vec4f::WWYW()
 		{
-			return Vector4<T>(this->W, this->W, this->Z, this->W);
+			return vec4f(this->W, this->W, this->Y, this->W);
 		}
 
 
-		template<class T>
-		Vector4<T> Vector4<T>::WWWX()
+
+		
+		vec4f vec4f::WWZX()
 		{
-			return Vector4<T>(this->W, this->W, this->W, this->X);
+			return vec4f(this->W, this->W, this->Z, this->X);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WWWY()
+		
+		vec4f vec4f::WWZY()
 		{
-			return Vector4<T>(this->W, this->W, this->W, this->Y);
+			return vec4f(this->W, this->W, this->Z, this->Y);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WWWZ()
+		
+		vec4f vec4f::WWZZ()
 		{
-			return Vector4<T>(this->W, this->W, this->W, this->Z);
+			return vec4f(this->W, this->W, this->Z, this->Z);
 		}
 
-		template<class T>
-		Vector4<T> Vector4<T>::WWWW()
+		
+		vec4f vec4f::WWZW()
 		{
-			return Vector4<T>(this->W, this->W, this->W, this->W);
+			return vec4f(this->W, this->W, this->Z, this->W);
+		}
+
+
+		
+		vec4f vec4f::WWWX()
+		{
+			return vec4f(this->W, this->W, this->W, this->X);
+		}
+
+		
+		vec4f vec4f::WWWY()
+		{
+			return vec4f(this->W, this->W, this->W, this->Y);
+		}
+
+		
+		vec4f vec4f::WWWZ()
+		{
+			return vec4f(this->W, this->W, this->W, this->Z);
+		}
+
+		
+		vec4f vec4f::WWWW()
+		{
+			return vec4f(this->W, this->W, this->W, this->W);
 		}
 
 		/////////////////////////////////////
 
-		template<class T>
-		void Vector4<T>::operator=(Vector4<T> &v4Right)
+		
+		void vec4f::operator=(vec4f &v4Right)
 		{
 			this->X = v4Right.X;
 			this->Y = v4Right.Y;
@@ -2144,8 +2098,8 @@ namespace Cinder
 			this->W = v4Right.W;
 		}
 
-		template<class T>
-		bool Vector4<T>::operator==(Vector4<T> &v4Right)
+		
+		bool vec4f::operator==(vec4f &v4Right)
 		{
 			bool x = this->X == v4Right.X;
 			bool y = this->Y == v4Right.Y;
@@ -2155,8 +2109,8 @@ namespace Cinder
 			return x && y && z && w;
 		}
 
-		template<class T>
-		bool Vector4<T>::operator!=(Vector4<T> &v4Right)
+		
+		bool vec4f::operator!=(vec4f &v4Right)
 		{
 			bool x = this->X != v4Right.X;
 			bool y = this->Y != v4Right.Y;
@@ -2165,9 +2119,8 @@ namespace Cinder
 
 			return x || y || z || w;
 		}
-
-		template<class T>
-		T Vector4<T>::operator[](unsigned int index)
+		
+		float& vec4f::operator[](unsigned int index)
 		{
 			if (index >= 4)
 			{
@@ -2177,257 +2130,226 @@ namespace Cinder
 			return this->Elements[index];
 		}
 
-
 		////////////////////////////////////////////
 
-		template<class T>
-		void Vector4<T>::operator+=(Vector4<T> &v4Right)
+		
+		void vec4f::operator+=(vec4f &v4Right)
 		{
-			*this = Vector4<T>(this->X + v4Right.X, this->Y + v4Right.Y, this->Z + v4Right.Z, this->W + v4Right.W);
+			*this = vec4f(this->X + v4Right.X, this->Y + v4Right.Y, this->Z + v4Right.Z, this->W + v4Right.W);
 		}
 
-		template<class T>
-		void Vector4<T>::operator-=(Vector4<T> &v4Right)
+		
+		void vec4f::operator-=(vec4f &v4Right)
 		{
-			*this = Vector4<T>(this->X - v4Right.X, this->Y - v4Right.Y, this->Z - v4Right.Z, this->W - v4Right.W);
+			*this = vec4f(this->X - v4Right.X, this->Y - v4Right.Y, this->Z - v4Right.Z, this->W - v4Right.W);
 		}
 
-		template<class T>
-		void Vector4<T>::operator*=(Vector4<T> &v4Right)
+		
+		void vec4f::operator*=(vec4f &v4Right)
 		{
-			*this = Vector4<T>(this->X * v4Right.X, this->Y * v4Right.Y, this->Z * v4Right.Z, this->W * v4Right.W);
+			*this = vec4f(this->X * v4Right.X, this->Y * v4Right.Y, this->Z * v4Right.Z, this->W * v4Right.W);
 		}
 
-		template<class T>
-		void Vector4<T>::operator/=(Vector4<T> &v4Right)
+		
+		void vec4f::operator/=(vec4f &v4Right)
 		{
-			*this = Vector4<T>(this->X / v4Right.X, this->Y / v4Right.Y, this->Z / v4Right.Z, this->W / v4Right.W);
+			*this = vec4f(this->X / v4Right.X, this->Y / v4Right.Y, this->Z / v4Right.Z, this->W / v4Right.W);
 		}
 
-		template<class T>
-		void Vector4<T>::operator+=(T right)
+		
+		void vec4f::operator+=(float right)
 		{
-			*this = Vector4<T>(this->X + right, this->Y + right, this->Z + right, this->W + right);
+			*this = vec4f(this->X + right, this->Y + right, this->Z + right, this->W + right);
 		}
 
-		template<class T>
-		void Vector4<T>::operator-=(T right)
+		
+		void vec4f::operator-=(float right)
 		{
-			*this = Vector4<T>(this->X - right, this->Y - right, this->Z - right, this->W - right);
+			*this = vec4f(this->X - right, this->Y - right, this->Z - right, this->W - right);
 		}
 
-		template<class T>
-		void Vector4<T>::operator*=(T right)
+		
+		void vec4f::operator*=(float right)
 		{
-			*this = Vector4<T>(this->X * right, this->Y * right, this->Z * right, this->W * right);
+			*this = vec4f(this->X * right, this->Y * right, this->Z * right, this->W * right);
 		}
 
-		template<class T>
-		void Vector4<T>::operator/=(T right)
+		
+		void vec4f::operator/=(float right)
 		{
-			*this = Vector4<T>(this->X / right, this->Y / right, this->Z / right, this->W / right);
+			*this = vec4f(this->X / right, this->Y / right, this->Z / right, this->W / right);
 		}
 
 		////////////////////////////////////////////
-
-		/////////////
-
-		template<typename T>
-		Vector4<T> operator+(Vector4<T> &v4Left, Vector4<T> &v4Right)
+				
+		vec4f operator+(vec4f &v4Left, vec4f &v4Right)
 		{
-			v4Left = Vec4::Sum(v4Left, v4Right);
-			return v4Left;
+			vec4f res = Vec4::Sum(v4Left, v4Right);
+			return res;
 		}
-
-		template<typename T>
-		Vector4<T> operator-(Vector4<T> &v4Left, Vector4<T> &v4Right)
+		
+		vec4f operator-(vec4f &v4Left, vec4f &v4Right)
 		{
-			v4Left = Vec4::Sub(v4Left, v4Right);
-			return v4Left;
+			vec4f res = Vec4::Sub(v4Left, v4Right);
+			return res;
 		}
-
-		template<typename T>
-		Vector4<T> operator*(Vector4<T> &v4Left, Vector4<T> &v4Right)
+				
+		vec4f operator*(vec4f &v4Left, vec4f &v4Right)
 		{
-			v4Left = Vec4::Mul(v4Left, v4Right);
-			return v4Left;
+			vec4f res = Vec4::Mul(v4Left, v4Right);
+			return res;
 		}
-
-		template<typename T>
-		Vector4<T> operator/(Vector4<T> &v4Left, Vector4<T> &v4Right)
+				
+		vec4f operator/(vec4f &v4Left, vec4f &v4Right)
 		{
-			v4Left = Vec4::Div(v4Left, v4Right);
-			return v4Left;
+			vec4f res = Vec4::Div(v4Left, v4Right);
+			return res;
 		}
-
-
-		template<typename T>
-		Vector4<T> operator+(Vector4<T> &v4Left, T right)
+				
+		vec4f operator+(vec4f &v4Left, float right)
 		{
-			v4Left = Vec4::Sum(v4Left, right);
-			return v4Left;
+			vec4f res = Vec4::Sum(v4Left, right);
+			return res;
 		}
-
-		template<typename T>
-		Vector4<T> operator-(Vector4<T> &v4Left, T right)
+				
+		vec4f operator-(vec4f &v4Left, float right)
 		{
-			v4Left = Vec4::Sub(v4Left, right);
-			return v4Left;
+			vec4f res = Vec4::Sub(v4Left, right);
+			return res;
 		}
-
-		template<typename T>
-		Vector4<T> operator*(Vector4<T> &v4Left, T right)
+		
+		vec4f operator*(vec4f &v4Left, float right)
 		{
-			v4Left = Vec4::Mul(v4Left, right);
-			return v4Left;
+			vec4f res = Vec4::Mul(v4Left, right);
+			return res;
 		}
-
-		template<typename T>
-		Vector4<T> operator/(Vector4<T> &v4Left, T right)
+		
+		vec4f operator/(vec4f &v4Left, float right)
 		{
-			v4Left = Vec4::Div(v4Left, right);
-			return v4Left;
+			vec4f res = Vec4::Div(v4Left, right);
+			return res;
 		}
-
-		template<typename T>
-		Vector4<T> operator+(T left, Vector4<T> &v4Right)
+		
+		vec4f operator+(float left, vec4f &v4Right)
 		{
-			v4Left = Vec4::Sum(left, v4Right);
-			return v4Left;
+			vec4f res = Vec4::Sum(left, v4Right);
+			return res;
 		}
-
-		template<typename T>
-		Vector4<T> operator-(T left, Vector4<T> &v4Right)
+		
+		vec4f operator-(float left, vec4f &v4Right)
 		{
-			v4Left = Vec4::Sub(left, v4Right);
-			return v4Left;
+			vec4f res = Vec4::Sub(left, v4Right);
+			return res;
 		}
-
-		template<typename T>
-		Vector4<T> operator*(T left, Vector4<T> &v4Right)
+		
+		vec4f operator*(float left, vec4f &v4Right)
 		{
-			v4Left = Vec4::Mul(left, v4Right);
-			return v4Left;
+			vec4f res = Vec4::Mul(left, v4Right);
+			return res;
 		}
-
-		template<typename T>
-		Vector4<T> operator/(T left, Vector4<T> &v4Right)
+		
+		vec4f operator/(float left, vec4f &v4Right)
 		{
-			v4Left = Vec4::Div(left, v4Right);
-			return v4Left;
+			vec4f res = Vec4::Div(left, v4Right);
+			return res;
 		}
 
 		/////////////////			
 
 		namespace Vec4
 		{
-			template<typename T>
-			float Length(Vector4<T> &v4)
+
+			float Length(vec4f &v4)
 			{
 				float result = sqrtf((v4.X * v4.X) + (v4.Y * v4.Y) + (v4.Z * v4.Z) + (v4.W * v4.W));
 				return result;
 			}
 
-			template<typename T>
-			float LengthSquare(Vector4<T> &v4)
+			float LengthSquare(vec4f &v4)
 			{
 				float result = ((v4.X * v4.X) + (v4.Y * v4.Y) + (v4.Z * v4.Z) + (v4.W * v4.W));
 				return result;
 			}
 
-			template<typename T>
-			Vector4<T> Normalize(Vector4<T> &v4)
+			vec4f Normalize(vec4f &v4)
 			{
 				float length = Length(v4);
-				v4 = Vector4<T>((v4.X / length), (v4.Y / length), (v4.Z / length), (v4.W / length));
-				return v4;
+				vec4f res = vec4f((v4.X / length), (v4.Y / length), (v4.Z / length), (v4.W / length));
+				return res;
 			}
 
-			template<typename T>
-			Vector4<T> Sum(Vector4<T> &v4Left, Vector4<T> &v4Right)
+			vec4f Sum(vec4f &v4Left, vec4f &v4Right)
 			{
-				v4Left = Vector4<T>(v4Left.X + v4Right.X, v4Left.Y + v4Right.Y, v4Left.Z + v4Right.Z, v4Left.W + v4Right.W);
+				vec4f res = vec4f(v4Left.X + v4Right.X, v4Left.Y + v4Right.Y, v4Left.Z + v4Right.Z, v4Left.W + v4Right.W);
+				return res;
+			}
+
+			vec4f Sub(vec4f &v4Left, vec4f &v4Right)
+			{
+				vec4f res = vec4f(v4Left.X - v4Right.X, v4Left.Y - v4Right.Y, v4Left.Z - v4Right.Z, v4Left.W - v4Right.W);
+				return res;
+			}
+
+			vec4f Mul(vec4f &v4Left, vec4f &v4Right)
+			{
+				vec4f res = vec4f(v4Left.X * v4Right.X, v4Left.Y * v4Right.Y, v4Left.Z * v4Right.Z, v4Left.W * v4Right.W);
+				return res;
+			}
+
+			vec4f Div(vec4f &v4Left, vec4f &v4Right)
+			{
+				vec4f res = vec4f(v4Left.X / v4Right.X, v4Left.Y / v4Right.Y, v4Left.Z / v4Right.Z, v4Left.W / v4Right.W);
+				return res;
+			}
+
+			vec4f Sum(vec4f &v4Left, float right)
+			{
+				vec4f res = vec4f(v4Left.X + right, v4Left.Y + right, v4Left.Z + right, v4Left.W + right);
+				return res;
+			}
+
+			vec4f Sub(vec4f &v4Left, float right)
+			{
+				vec4f res = vec4f(v4Left.X - right, v4Left.Y - right, v4Left.Z - right, v4Left.W - right);
+				return res;
+			}
+
+			vec4f Mul(vec4f &v4Left, float right)
+			{
+				vec4f res = vec4f(v4Left.X * right, v4Left.Y * right, v4Left.Z * right, v4Left.W * right);
 				return v4Left;
 			}
 
-			template<typename T>
-			Vector4<T> Sub(Vector4<T> &v4Left, Vector4<T> &v4Right)
+			vec4f Div(vec4f &v4Left, float right)
 			{
-				v4Left = Vector4<T>(v4Left.X - v4Right.X, v4Left.Y - v4Right.Y, v4Left.Z - v4Right.Z, v4Left.W - v4Right.W);
-				return v4Left;
+				vec4f res = vec4f(v4Left.X / right, v4Left.Y / right, v4Left.Z / right, v4Left.W / right);
+				return res;
 			}
 
-			template<typename T>
-			Vector4<T> Mul(Vector4<T> &v4Left, Vector4<T> &v4Right)
+			vec4f Sum(float left, vec4f &v4Right)
 			{
-				v4Left = Vector4<T>(v4Left.X * v4Right.X, v4Left.Y * v4Right.Y, v4Left.Z * v4Right.Z, v4Left.W * v4Right.W);
-				return v4Left;
+				vec4f res = vec4f(left + v4Right.X, left + v4Right.Y, left + v4Right.Z, left + v4Right.W);
+				return res;
 			}
 
-			template<typename T>
-			Vector4<T> Div(Vector4<T> &v4Left, Vector4<T> &v4Right)
+			vec4f Sub(float left, vec4f &v4Right)
 			{
-				v4Left = Vector4<T>(v4Left.X / v4Right.X, v4Left.Y / v4Right.Y, v4Left.Z / v4Right.Z, v4Left.W / v4Right.W);
-				return v4Left;
+				vec4f res = vec4f(left - v4Right.X, left - v4Right.Y, left - v4Right.Z, left - v4Right.W);
+				return res;
 			}
 
-			template<typename T>
-			Vector4<T> Sum(Vector4<T> &v4Left, T right)
+			vec4f Mul(float left, vec4f &v4Right)
 			{
-				v4Left = Vector4<T>(v4Left.X + right, v4Left.Y + right, v4Left.Z + right, v4Left.W + right);
-				return v4Left;
+				vec4f res = vec4f(left * v4Right.X, left * v4Right.Y, left * v4Right.Z, left * v4Right.W);
+				return res;
 			}
 
-			template<typename T>
-			Vector4<T> Sub(Vector4<T> &v4Left, T right)
+			vec4f Div(float left, vec4f &v4Right)
 			{
-				v4Left = Vector4<T>(v4Left.X - right, v4Left.Y - right, v4Left.Z - right, v4Left.W - right);
-				return v4Left;
+				vec4f res = vec4f(left / v4Right.X, left / v4Right.Y, left / v4Right.Z, left / v4Right.W);
+				return res;
 			}
-
-			template<typename T>
-			Vector4<T> Mul(Vector4<T> &v4Left, T right)
-			{
-				v4Left = Vector4<T>(v4Left.X * right, v4Left.Y * right, v4Left.Z * right, v4Left.W * right);
-				return v4Left;
-			}
-
-			template<typename T>
-			Vector4<T> Div(Vector4<T> &v4Left, T right)
-			{
-				v4Left = Vector4<T>(v4Left.X / right, v4Left.Y / right, v4Left.Z / right, v4Left.W / right);
-				return v4Left;
-			}
-
-			template<typename T>
-			Vector4<T> Sum(T left, Vector4<T> &v4Right)
-			{
-				v4Left = Vector4<T>(left + v4Right.X, left + v4Right.Y, left + v4Right.Z, left + v4Right.W);
-				return v4Left;
-			}
-
-			template<typename T>
-			Vector4<T> Sub(T left, Vector4<T> &v4Right)
-			{
-				v4Left = Vector4<T>(left - v4Right.X, left - v4Right.Y, left - v4Right.Z, left - v4Right.W);
-				return v4Left;
-			}
-
-			template<typename T>
-			Vector4<T> Mul(T left, Vector4<T> &v4Right)
-			{
-				v4Left = Vector4<T>(left * v4Right.X, left * v4Right.Y, left * v4Right.Z, left * v4Right.W);
-				return v4Left;
-			}
-
-			template<typename T>
-			Vector4<T> Div(T left, Vector4<T> &v4Right)
-			{
-				v4Left = Vector4<T>(left / v4Right.X, left / v4Right.Y, left / v4Right.Z, left / v4Right.W);
-				return v4Left;
-			}			
 		}
 	}
 }
 
-#endif

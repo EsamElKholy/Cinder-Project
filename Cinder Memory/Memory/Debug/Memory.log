@@ -1,0 +1,5 @@
+﻿  DoubleLinkedPool.cpp
+g:\projects\cinder-project\cinder\cinder memory\memory\doublelinkedpool.cpp(164): warning C4715: 'Cinder::Memory::DoubleLinkedPool::GrowMemory' : not all control paths return a value
+  Memory.vcxproj -> G:\Projects\Cinder-Project\Cinder\Cinder Memory\output\lib\Cinder Memory_Debug.lib
+  G:\Projects\Cinder-Project\Cinder\Cinder Memory\Memory\include\CinderMemory.h
+  1 File(s) copied

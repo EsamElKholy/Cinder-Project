@@ -1,323 +1,251 @@
-#ifndef VECTOR3_CPP
-#define VECTOR3_CPP
-
 #include "CinderMath.h"
 
 namespace Cinder
 {
 	namespace Math
 	{
-		template<class T>
-		Vector3<T>::Vector3(T x, T y, T z)
-			: X(x), Y(y), Z(z)
-		{}
-
-		template<class T>
-		Vector3<T>::Vector3(Vector2<T> &vec2, T z)
-			: X(vec2.X), Y(vec2.Y), Z(z)
-		{}
-
-		template<class T>
-		Vector3<T>::Vector3(T x, Vector2<T> &vec2)
-			: X(x), Y(vec2.Z), Z(vec2.Y)
-		{}
-
-		template<class T>
-		Vector3<T>::Vector3(Vector2<T> &vec2)
-			: X(vec2.X), Y(vec2.Y), Z(T(0))
-		{}
-
-		//////////////////////					
-
-		template<class T>
-		Vector2<T> Vector3<T>::XX()
+		vec2f vec3f::XX()
 		{
-			return Vector2<T>(this->X, this->X);
+			return vec2f(this->X, this->X);
 		}
 
-		template<class T>
-		Vector2<T> Vector3<T>::XY()
+		vec2f vec3f::XY()
 		{
-			return Vector2<T>(this->X, this->Y);
+			return vec2f(this->X, this->Y);
 		}
 
-		template<class T>
-		Vector2<T> Vector3<T>::XZ()
+		vec2f vec3f::XZ()
 		{
-			return Vector2<T>(this->X, this->Z);
+			return vec2f(this->X, this->Z);
 		}
 
 		//////////////////////
 
-		template<class T>
-		Vector2<T> Vector3<T>::YX()
+		vec2f vec3f::YX()
 		{
-			return Vector2<T>(this->Y, this->X);
+			return vec2f(this->Y, this->X);
 		}
 
-		template<class T>
-		Vector2<T> Vector3<T>::YY()
+		vec2f vec3f::YY()
 		{
-			return Vector2<T>(this->Y, this->Y);
+			return vec2f(this->Y, this->Y);
 		}
 
-		template<class T>
-		Vector2<T> Vector3<T>::YZ()
+		vec2f vec3f::YZ()
 		{
-			return Vector2<T>(this->Y, this->Z);
+			return vec2f(this->Y, this->Z);
 		}
 
 		//////////////////////
 
-		template<class T>
-		Vector2<T> Vector3<T>::ZX()
+		vec2f vec3f::ZX()
 		{
-			return Vector2<T>(this->Z, this->X);
+			return vec2f(this->Z, this->X);
 		}
 
-		template<class T>
-		Vector2<T> Vector3<T>::ZY()
+		vec2f vec3f::ZY()
 		{
-			return Vector2<T>(this->Z, this->Y);
+			return vec2f(this->Z, this->Y);
 		}
 
-		template<class T>
-		Vector2<T> Vector3<T>::ZZ()
+		vec2f vec3f::ZZ()
 		{
-			return Vector2<T>(this->Z, this->Z);
+			return vec2f(this->Z, this->Z);
 		}
 
 		//////////////////////
 
-		template<class T>
-		Vector3<T> Vector3<T>::XXX()
+		vec3f vec3f::XXX()
 		{
-			return Vector3<T>(this->X, this->X, this->X);
+			return vec3f(this->X, this->X, this->X);
 		}
 
-		template<class T>
-		Vector3<T> Vector3<T>::XXY()
+		vec3f vec3f::XXY()
 		{
-			return Vector3<T>(this->X, this->X, this->Y);
+			return vec3f(this->X, this->X, this->Y);
 		}
 
-		template<class T>
-		Vector3<T> Vector3<T>::XXZ()
+		vec3f vec3f::XXZ()
 		{
-			return Vector3<T>(this->X, this->X, this->Z);
+			return vec3f(this->X, this->X, this->Z);
 		}
 
-		template<class T>
-		Vector3<T> Vector3<T>::XYX()
+		vec3f vec3f::XYX()
 		{
-			return Vector3<T>(this->X, this->Y, this->X);
+			return vec3f(this->X, this->Y, this->X);
 		}
 
-		template<class T>
-		Vector3<T> Vector3<T>::XYY()
+		vec3f vec3f::XYY()
 		{
-			return Vector3<T>(this->X, this->Y, this->Y);
+			return vec3f(this->X, this->Y, this->Y);
 		}
 
-		template<class T>
-		Vector3<T> Vector3<T>::XYZ()
+		vec3f vec3f::XYZ()
 		{
-			return Vector3<T>(this->X, this->Y, this->Z);
+			return vec3f(this->X, this->Y, this->Z);
 		}
 
-		template<class T>
-		Vector3<T> Vector3<T>::XZX()
+		vec3f vec3f::XZX()
 		{
-			return Vector3<T>(this->X, this->Z, this->X);
+			return vec3f(this->X, this->Z, this->X);
 		}
 
-		template<class T>
-		Vector3<T> Vector3<T>::XZY()
+		vec3f vec3f::XZY()
 		{
-			return Vector3<T>(this->X, this->Z, this->Y);
+			return vec3f(this->X, this->Z, this->Y);
 		}
 
-		template<class T>
-		Vector3<T> Vector3<T>::XZZ()
+		vec3f vec3f::XZZ()
 		{
-			return Vector3<T>(this->X, this->Z, this->Z);
+			return vec3f(this->X, this->Z, this->Z);
 		}
 
 		//////////////////////
 
-		template<class T>
-		Vector3<T> Vector3<T>::YXX()
+		vec3f vec3f::YXX()
 		{
-			return Vector3<T>(this->Y, this->X, this->X);
+			return vec3f(this->Y, this->X, this->X);
 		}
 
-		template<class T>
-		Vector3<T> Vector3<T>::YXY()
+		vec3f vec3f::YXY()
 		{
-			return Vector3<T>(this->Y, this->X, this->Y);
+			return vec3f(this->Y, this->X, this->Y);
 		}
 
-		template<class T>
-		Vector3<T> Vector3<T>::YXZ()
+		vec3f vec3f::YXZ()
 		{
-			return Vector3<T>(this->Y, this->X, this->Z);
+			return vec3f(this->Y, this->X, this->Z);
 		}
 
-		template<class T>
-		Vector3<T> Vector3<T>::YYX()
+		vec3f vec3f::YYX()
 		{
-			return Vector3<T>(this->Y, this->Y, this->X);
+			return vec3f(this->Y, this->Y, this->X);
 		}
 
-		template<class T>
-		Vector3<T> Vector3<T>::YYY()
+		vec3f vec3f::YYY()
 		{
-			return Vector3<T>(this->Y, this->Y, this->Y);
+			return vec3f(this->Y, this->Y, this->Y);
 		}
 
-		template<class T>
-		Vector3<T> Vector3<T>::YYZ()
+		vec3f vec3f::YYZ()
 		{
-			return Vector3<T>(this->Y, this->Y, this->Z);
+			return vec3f(this->Y, this->Y, this->Z);
 		}
 
-		template<class T>
-		Vector3<T> Vector3<T>::YZX()
+		vec3f vec3f::YZX()
 		{
-			return Vector3<T>(this->Y, this->Z, this->X);
+			return vec3f(this->Y, this->Z, this->X);
 		}
 
-		template<class T>
-		Vector3<T> Vector3<T>::YZY()
+		vec3f vec3f::YZY()
 		{
-			return Vector3<T>(this->Y, this->Z, this->Y);
+			return vec3f(this->Y, this->Z, this->Y);
 		}
 
-		template<class T>
-		Vector3<T> Vector3<T>::YZZ()
+		vec3f vec3f::YZZ()
 		{
-			return Vector3<T>(this->Y, this->Z, this->Z);
+			return vec3f(this->Y, this->Z, this->Z);
 		}
 
 		//////////////////////
 
-		template<class T>
-		Vector3<T> Vector3<T>::ZXX()
+		vec3f vec3f::ZXX()
 		{
-			return Vector3<T>(this->Z, this->X, this->X);
+			return vec3f(this->Z, this->X, this->X);
 		}
 
-		template<class T>
-		Vector3<T> Vector3<T>::ZXY()
+		vec3f vec3f::ZXY()
 		{
-			return Vector3<T>(this->Z, this->X, this->Y);
+			return vec3f(this->Z, this->X, this->Y);
 		}
 
-		template<class T>
-		Vector3<T> Vector3<T>::ZXZ()
+		vec3f vec3f::ZXZ()
 		{
-			return Vector3<T>(this->Z, this->X, this->Z);
+			return vec3f(this->Z, this->X, this->Z);
 		}
 
-		template<class T>
-		Vector3<T> Vector3<T>::ZYX()
+		vec3f vec3f::ZYX()
 		{
-			return Vector3<T>(this->Z, this->Y, this->X);
+			return vec3f(this->Z, this->Y, this->X);
 		}
 
-		template<class T>
-		Vector3<T> Vector3<T>::ZYY()
+		vec3f vec3f::ZYY()
 		{
-			return Vector3<T>(this->Z, this->Y, this->Y);
+			return vec3f(this->Z, this->Y, this->Y);
 		}
 
-		template<class T>
-		Vector3<T> Vector3<T>::ZYZ()
+		vec3f vec3f::ZYZ()
 		{
-			return Vector3<T>(this->Z, this->Y, this->Z);
+			return vec3f(this->Z, this->Y, this->Z);
 		}
 
-		template<class T>
-		Vector3<T> Vector3<T>::ZZX()
+		vec3f vec3f::ZZX()
 		{
-			return Vector3<T>(this->Z, this->Z, this->X);
+			return vec3f(this->Z, this->Z, this->X);
 		}
 
-		template<class T>
-		Vector3<T> Vector3<T>::ZZY()
+		vec3f vec3f::ZZY()
 		{
-			return Vector3<T>(this->Z, this->Z, this->Y);
+			return vec3f(this->Z, this->Z, this->Y);
 		}
 
-		template<class T>
-		Vector3<T> Vector3<T>::ZZZ()
+		vec3f vec3f::ZZZ()
 		{
-			return Vector3<T>(this->Z, this->Z, this->Z);
+			return vec3f(this->Z, this->Z, this->Z);
 		}
 
 		//////////////////////////////////
 
-		template<class T>
-		void Vector3<T>::operator+=(Vector3<T> &v3Right)
+		void vec3f::operator+=(vec3f &v3Right)
 		{
-			*this = Vector3<T>(this->X + v3Right.X, this->Y + v3Right.Y, this->Z + v3Right.Z);
+			*this = vec3f(this->X + v3Right.X, this->Y + v3Right.Y, this->Z + v3Right.Z);
 		}
 
-		template<class T>
-		void Vector3<T>::operator-=(Vector3<T> &v3Right)
+		void vec3f::operator-=(vec3f &v3Right)
 		{
-			*this = Vector3<T>(this->X - v3Right.X, this->Y - v3Right.Y, this->Z - v3Right.Z);
+			*this = vec3f(this->X - v3Right.X, this->Y - v3Right.Y, this->Z - v3Right.Z);
 		}
 
-		template<class T>
-		void Vector3<T>::operator*=(Vector3<T> &v3Right)
+		void vec3f::operator*=(vec3f &v3Right)
 		{
-			*this = Vector3<T>(this->X * v3Right.X, this->Y * v3Right.Y, this->Z * v3Right.Z);
+			*this = vec3f(this->X * v3Right.X, this->Y * v3Right.Y, this->Z * v3Right.Z);
 		}
 
-		template<class T>
-		void Vector3<T>::operator/=(Vector3<T> &v3Right)
+		void vec3f::operator/=(vec3f &v3Right)
 		{
-			*this = Vector3<T>(this->X / v3Right.X, this->Y / v3Right.Y, this->Z / v3Right.Z);
+			*this = vec3f(this->X / v3Right.X, this->Y / v3Right.Y, this->Z / v3Right.Z);
 		}
 
-
-		template<class T>
-		void Vector3<T>::operator+=(T right)
+		void vec3f::operator+=(float right)
 		{
-			*this = Vector3<T>(this->X + right, this->Y + right, this->Z + right);
+			*this = vec3f(this->X + right, this->Y + right, this->Z + right);
 		}
 
-		template<class T>
-		void Vector3<T>::operator-=(T right)
+		void vec3f::operator-=(float right)
 		{
-			*this = Vector3<T>(this->X - right, this->Y - right, this->Z - right);
+			*this = vec3f(this->X - right, this->Y - right, this->Z - right);
 		}
 
-		template<class T>
-		void Vector3<T>::operator*=(T right)
+		void vec3f::operator*=(float right)
 		{
-			*this = Vector3<T>(this->X * right, this->Y * right, this->Z * right);
+			*this = vec3f(this->X * right, this->Y * right, this->Z * right);
 		}
 
-		template<class T>
-		void Vector3<T>::operator/=(T right)
+		void vec3f::operator/=(float right)
 		{
-			*this = Vector3<T>(this->X / right, this->Y / right, this->Z / right);
+			*this = vec3f(this->X / right, this->Y / right, this->Z / right);
 		}
 
 		//////////////////////////////////
 
-		template<class T>
-		void Vector3<T>::operator=(Vector3<T> &v3Right)
+		void vec3f::operator=(vec3f &v3Right)
 		{
 			this->X = v3Right.X;
 			this->Y = v3Right.Y;
 			this->Z = v3Right.Z;
 		}
 
-		template<class T>
-		bool Vector3<T>::operator==(Vector3<T> &v3Right)
+		bool vec3f::operator==(vec3f &v3Right)
 		{
 			bool x = this->X == v3Right.X;
 			bool y = this->Y == v3Right.Y;
@@ -326,8 +254,7 @@ namespace Cinder
 			return x && y && z;
 		}
 
-		template<class T>
-		bool Vector3<T>::operator!=(Vector3<T> &v3Right)
+		bool vec3f::operator!=(vec3f &v3Right)
 		{
 			bool x = this->X != v3Right.X;
 			bool y = this->Y != v3Right.Y;
@@ -336,8 +263,7 @@ namespace Cinder
 			return x || y || z;
 		}
 
-		template<class T>
-		T Vector3<T>::operator[](unsigned int index)
+		float& vec3f::operator[](unsigned int index)
 		{
 			if (index >= 3)
 			{
@@ -349,204 +275,176 @@ namespace Cinder
 
 		///////////////////////////////////
 
-		template<typename T>
-		Vector3<T> operator+(Vector3<T> &v3Left, Vector3<T> &v3Right)
+		vec3f operator+(vec3f &v3Left, vec3f &v3Right)
 		{
-			v3Left = Vec3::Sum(v3Left, v3Right);
-			return v3Left;
+			vec3f res = Vec3::Sum(v3Left, v3Right);
+			return res;
 		}
 
-		template<typename T>
-		Vector3<T> operator-(Vector3<T> &v3Left, Vector3<T> &v3Right)
+		vec3f operator-(vec3f &v3Left, vec3f &v3Right)
 		{
-			v3Left = Vec3::Sub(v3Left, v3Right);
-			return v3Left;
+			vec3f res = Vec3::Sub(v3Left, v3Right);
+			return res;
 		}
 
-		template<typename T>
-		Vector3<T> operator*(Vector3<T> &v3Left, Vector3<T> &v3Right)
+		vec3f operator*(vec3f &v3Left, vec3f &v3Right)
 		{
-			v3Left = Vec3::Mul(v3Left, v3Right);
-			return v3Left;
+			vec3f res = Vec3::Mul(v3Left, v3Right);
+			return res;
 		}
 
-		template<typename T>
-		Vector3<T> operator/(Vector3<T> &v3Left, Vector3<T> &v3Right)
+		vec3f operator/(vec3f &v3Left, vec3f &v3Right)
 		{
-			v3Left = Vec3::Div(v3Left, v3Right);
-			return v3Left;
+			vec3f res = Vec3::Div(v3Left, v3Right);
+			return res;
 		}
 
-		template<typename T>
-		Vector3<T> operator+(Vector3<T> &v3Left, T right)
+		vec3f operator+(vec3f &v3Left, float right)
 		{
-			v3Left = Vec3::Sum(v3Left, right);
-			return v3Left;
+			vec3f res = Vec3::Sum(v3Left, right);
+			return res;
 		}
 
-		template<typename T>
-		Vector3<T> operator-(Vector3<T> &v3Left, T right)
+		vec3f operator-(vec3f &v3Left, float right)
 		{
-			v3Left = Vec3::Sub(v3Left, right);
-			return v3Left;
+			vec3f res = Vec3::Sub(v3Left, right);
+			return res;
 		}
 
-		template<typename T>
-		Vector3<T> operator*(Vector3<T> &v3Left, T right)
+		vec3f operator*(vec3f &v3Left, float right)
 		{
-			v3Left = Vec3::Mul(v3Left, right);
-			return v3Left;
+			vec3f res = Vec3::Mul(v3Left, right);
+			return res;
 		}
 
-		template<typename T>
-		Vector3<T> operator/(Vector3<T> &v3Left, T right)
+		vec3f operator/(vec3f &v3Left, float right)
 		{
-			v3Left = Vec3::Div(v3Left, right);
-			return v3Left;
+			vec3f res = Vec3::Div(v3Left, right);
+			return res;
 		}
 
-		template<typename T>
-		Vector3<T> operator+(T left, Vector3<T> &v3Right)
+		vec3f operator+(float left, vec3f &v3Right)
 		{
-			v3Left = Vec3::Sum(left, v3Right);
-			return v3Left;
+			vec3f res = Vec3::Sum(left, v3Right);
+			return res;
 		}
 
-		template<typename T>
-		Vector3<T> operator-(T left, Vector3<T> &v3Right)
+		vec3f operator-(float left, vec3f &v3Right)
 		{
-			v3Left = Vec3::Sub(left, v3Right);
-			return v3Left;
+			vec3f res = Vec3::Sub(left, v3Right);
+			return res;
 		}
 
-		template<typename T>
-		Vector3<T> operator*(T left, Vector3<T> &v3Right)
+		vec3f operator*(float left, vec3f &v3Right)
 		{
-			v3Left = Vec3::Mul(left, v3Right);
-			return v3Left;
+			vec3f res = Vec3::Mul(left, v3Right);
+			return res;
 		}
 
-		template<typename T>
-		Vector3<T> operator/(T left, Vector3<T> &v3Right)
+		vec3f operator/(float left, vec3f &v3Right)
 		{
-			v3Left = Vec3::Div(left, v3Right);
-			return v3Left;
+			vec3f res = Vec3::Div(left, v3Right);
+			return res;
 		}
 
 		///////////////////////////////////
 
 		namespace Vec3
 		{
-			template<typename T>
-			float Length(Vector3<T> &v3)
+			float Length(vec3f &v3)
 			{
 				float result = sqrtf((v3.X * v3.X) + (v3.Y * v3.Y) + (v3.Z * v3.Z));
 				return result;
 			}
 
-			template<typename T>
-			float LengthSquare(Vector3<T> &v3)
+			float LengthSquare(vec3f &v3)
 			{
 				float result = ((v3.X * v3.X) + (v3.Y * v3.Y) + (v3.Z * v3.Z));
 				return result;
 			}
 
-			template<typename T>
-			Vector3<T> Normalize(Vector3<T> &v3)
+			vec3f Normalize(vec3f &v3)
 			{
-				float length = Length(v3);
-				v3 = Vector3<T>((v3.X / length), (v3.Y / length), (v3.Z / length));
-				return v3;
+				float invlength = 1.0f / Length(v3);
+				vec3f res = vec3f((v3.X * invlength), (v3.Y * invlength), (v3.Z * invlength));
+				return res;
 			}
 
-			template<typename T>
-			Vector3<T> Sum(Vector3<T> &v3Left, Vector3<T> &v3Right)
+			vec3f Sum(vec3f &v3Left, vec3f &v3Right)
 			{
-				v3Left = Vector3<T>(v3Left.X + v3Right.X, v3Left.Y + v3Right.Y, v3Left.Z + v3Right.Z);
-				return v3Left;
+				vec3f res = vec3f(v3Left.X + v3Right.X, v3Left.Y + v3Right.Y, v3Left.Z + v3Right.Z);
+				return res;
 			}
 
-			template<typename T>
-			Vector3<T> Sub(Vector3<T> &v3Left, Vector3<T> &v3Right)
+			vec3f Sub(vec3f &v3Left, vec3f &v3Right)
 			{
-				v3Left = Vector3<T>(v3Left.X - v3Right.X, v3Left.Y - v3Right.Y, v3Left.Z - v3Right.Z);
-				return v3Left;
+				vec3f res = vec3f(v3Left.X - v3Right.X, v3Left.Y - v3Right.Y, v3Left.Z - v3Right.Z);
+				return res;
 			}
 
-			template<typename T>
-			Vector3<T> Mul(Vector3<T> &v3Left, Vector3<T> &v3Right)
+			vec3f Mul(vec3f &v3Left, vec3f &v3Right)
 			{
-				v3Left = Vector3<T>(v3Left.X * v3Right.X, v3Left.Y * v3Right.Y, v3Left.Z * v3Right.Z);
-				return v3Left;
+				vec3f res = vec3f(v3Left.X * v3Right.X, v3Left.Y * v3Right.Y, v3Left.Z * v3Right.Z);
+				return res;
 			}
 
-			template<typename T>
-			Vector3<T> Div(Vector3<T> &v3Left, Vector3<T> &v3Right)
+			vec3f Div(vec3f &v3Left, vec3f &v3Right)
 			{
-				v3Left = Vector3<T>(v3Left.X / v3Right.X, v3Left.Y / v3Right.Y, v3Left.Z / v3Right.Z);
-				return v3Left;
+				vec3f res = vec3f(v3Left.X / v3Right.X, v3Left.Y / v3Right.Y, v3Left.Z / v3Right.Z);
+				return res;
 			}
 
-			template<typename T>
-			Vector3<T> Sum(Vector3<T> &v3Left, T right)
+			vec3f Sum(vec3f &v3Left, float right)
 			{
-				v3Left = Vector3<T>(v3Left.X + right, v3Left.Y + right, v3Left.Z + right);
-				return v3Left;
+				vec3f res = vec3f(v3Left.X + right, v3Left.Y + right, v3Left.Z + right);
+				return res;
 			}
 
-			template<typename T>
-			Vector3<T> Sub(Vector3<T> &v3Left, T right)
+			vec3f Sub(vec3f &v3Left, float right)
 			{
-				v3Left = Vector3<T>(v3Left.X - right, v3Left.Y - right, v3Left.Z - right);
-				return v3Left;
+				vec3f res = vec3f(v3Left.X - right, v3Left.Y - right, v3Left.Z - right);
+				return res;
 			}
 
-			template<typename T>
-			Vector3<T> Mul(Vector3<T> &v3Left, T right)
+			vec3f Mul(vec3f &v3Left, float right)
 			{
-				v3Left = Vector3<T>(v3Left.X * right, v3Left.Y * right, v3Left.Z * right);
-				return v3Left;
+				vec3f res = vec3f(v3Left.X * right, v3Left.Y * right, v3Left.Z * right);
+				return res;
 			}
 
-			template<typename T>
-			Vector3<T> Div(Vector3<T> &v3Left, T right)
+			vec3f Div(vec3f &v3Left, float right)
 			{
-				v3Left = Vector3<T>(v3Left.X / right, v3Left.Y / right, v3Left.Z / right);
-				return v3Left;
+				vec3f res = vec3f(v3Left.X / right, v3Left.Y / right, v3Left.Z / right);
+				return res;
 			}
 
-			template<typename T>
-			Vector3<T> Sum(T left, Vector3<T> &v3Right)
+			vec3f Sum(float left, vec3f &v3Right)
 			{
-				v3Left = Vector3<T>(left + v3Right.X, left + v3Right.Y, left + v3Right.Z);
-				return v3Left;
+				vec3f res = vec3f(left + v3Right.X, left + v3Right.Y, left + v3Right.Z);
+				return res;
 			}
 
-			template<typename T>
-			Vector3<T> Sub(T left, Vector3<T> &v3Right)
+			vec3f Sub(float left, vec3f &v3Right)
 			{
-				v3Left = Vector3<T>(left - v3Right.X, left - v3Right.Y, left - v3Right.Z);
-				return v3Left;
+				vec3f res = vec3f(left - v3Right.X, left - v3Right.Y, left - v3Right.Z);
+				return res;
 			}
 
-			template<typename T>
-			Vector3<T> Mul(T left, Vector3<T> &v3Right)
+			vec3f Mul(float left, vec3f &v3Right)
 			{
-				v3Left = Vector3<T>(left * v3Right.X, left * v3Right.Y, left * v3Right.Z);
-				return v3Left;
+				vec3f res = vec3f(left * v3Right.X, left * v3Right.Y, left * v3Right.Z);
+				return res;
 			}
 
-			template<typename T>
-			Vector3<T> Div(T left, Vector3<T> &v3Right)
+			vec3f Div(float left, vec3f &v3Right)
 			{
-				v3Left = Vector3<T>(left / v3Right.X, left / v3Right.Y, left / v3Right.Z);
-				return v3Left;
+				vec3f res = vec3f(left / v3Right.X, left / v3Right.Y, left / v3Right.Z);
+				return res;
 			}		
 
 			/////////////////////////////
 
-			template<typename T>
-			float Dot(Vector3<T> &v3Left, Vector3<T> &v3Right)
+			float Dot(vec3f &v3Left, vec3f &v3Right)
 			{
 				float x = v3Left.X * v3Right.X;
 				float y = v3Left.Y * v3Right.Y;
@@ -555,41 +453,35 @@ namespace Cinder
 				return (x + y + z);
 			}
 
-			template<typename T>
-			Vector3<T> Cross(Vector3<T> &v3Left, Vector3<T> &v3Right)
+			vec3f Cross(vec3f &v3Left, vec3f &v3Right)
 			{
-				T x = (v3Left.Y * v3Right.Z) - (v3Left.Z * v3Right.Y);
-				T y = (v3Left.X * v3Right.Z) - (v3Left.Z * v3Right.X);
-				T z = (v3Left.X * v3Right.Y) - (v3Left.Y * v3Right.X);
+				float x = (v3Left.Y * v3Right.Z) - (v3Left.Z * v3Right.Y);
+				float y = (v3Left.Z * v3Right.X) - (v3Left.X * v3Right.Z);
+				float z = (v3Left.X * v3Right.Y) - (v3Left.Y * v3Right.X);
 
-				return Vector3<T>(x, y, z);
+				return vec3f(x, y, z);
 			}
 
-			template<typename T>
-			Vector3<T> Translate(Vector3<T> &point, Vector3<T> &direction)
+			vec3f Translate(vec3f &point, vec3f &direction)
 			{
-				Vector3<T> result = Mat4::Translation(direction) * point;
+				vec3f result = Mat4::Translation(direction) * point;
 
 				return result;
 			}
 
-			template<typename T>
-			Vector3<T> Rotate(Vector3<T> &point, Vector3<T> &angle)
+			vec3f Rotate(vec3f &point, vec3f &angle)
 			{
-				Vector3<T> result = Mat4::Rotation(angle) * point;
+				vec3f result = Mat4::Rotation(angle) * point;
 
 				return result;
 			}
 
-			template<typename T>
-			Vector3<T> Scale(Vector3<T> &point, Vector3<T> &value)
+			vec3f Scale(vec3f &point, vec3f &value)
 			{
-				Vector3<T> result = Mat4::Scale(value) * point;
+				vec3f result = Mat4::Scale(value) * point;
 
 				return result;
 			}
 		}
 	}
 }
-
-#endif

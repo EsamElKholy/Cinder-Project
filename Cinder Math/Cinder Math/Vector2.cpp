@@ -1,52 +1,43 @@
-#ifndef VECTOR2_CPP
-#define VECTOR2_CPP
-
 #include "CinderMath.h"
 
 namespace Cinder
 {
 	namespace Math
 	{
-		template<class T>
-		Vector2<T>::Vector2(T x, T y)
-			: X(x), Y(y)
-		{}
-
-		template<typename T>
-		Vector2<T> Vector2<T>::YX()
+		
+		vec2f vec2f::YX()
 		{
-			return Vector2<T>(this->Y, this->X);
+			return vec2f(this->Y, this->X);
 		}
 
-		template<class T>
-		Vector2<T> Vector2<T>::XY()
+		
+		vec2f vec2f::XY()
 		{
-			return Vector2<T>(this->X, this->Y);
+			return vec2f(this->X, this->Y);
 		}
 
-		template<class T>
-		Vector2<T> Vector2<T>::XX()
+		
+		vec2f vec2f::XX()
 		{
-			return Vector2<T>(this->X, this->X);
+			return vec2f(this->X, this->X);
 		}
 
-		template<class T>
-		Vector2<T> Vector2<T>::YY()
+		
+		vec2f vec2f::YY()
 		{
-			return Vector2<T>(this->Y, this->Y);
+			return vec2f(this->Y, this->Y);
 		}
 
 		//////////////////////////////
 
-		template<class T>
-		void Vector2<T>::operator=(Vector2<T> &v2Right)
+		
+		void vec2f::operator=(vec2f &v2Right)
 		{
 			this->X = v2Right.X;
 			this->Y = v2Right.Y;
 		}
 		
-		template<class T>
-		bool Vector2<T>::operator==(Vector2<T> &v2Right)
+		bool vec2f::operator==(vec2f &v2Right)
 		{
 			bool x = this->X == v2Right.X;
 			bool y = this->Y == v2Right.Y;
@@ -54,8 +45,8 @@ namespace Cinder
 			return x && y;
 		}
 
-		template<class T>
-		bool Vector2<T>::operator!=(Vector2<T> &v2Right)
+		
+		bool vec2f::operator!=(vec2f &v2Right)
 		{
 			bool x = this->X != v2Right.X;
 			bool y = this->Y != v2Right.Y;
@@ -63,8 +54,8 @@ namespace Cinder
 			return x || y;
 		}
 
-		template<class T>
-		T Vector2<T>::operator[](unsigned int index)
+		
+		float& vec2f::operator[](unsigned int index)
 		{
 			if (index >= 2)
 			{
@@ -76,280 +67,247 @@ namespace Cinder
 
 		/////////////////
 
-		template<class T>
-		void Vector2<T>::operator+=(Vector2<T> &v2Right)
+		
+		void vec2f::operator+=(vec2f &v2Right)
 		{
-			*this = Vector2<T>(this->X + v2Left.X, this->Y + v2Right.Y);
+			*this = vec2f(this->X + v2Right.X, this->Y + v2Right.Y);
 		}
 
-		template<class T>
-		void Vector2<T>::operator-=(Vector2<T> &v2Right)
+		
+		void vec2f::operator-=(vec2f &v2Right)
 		{
-			*this = Vector2<T>(this->X - v2Left.X, this->Y - v2Right.Y);
+			*this = vec2f(this->X - v2Right.X, this->Y - v2Right.Y);
 		}
 
-		template<class T>
-		void Vector2<T>::operator*=(Vector2<T> &v2Right)
+		
+		void vec2f::operator*=(vec2f &v2Right)
 		{
-			*this = Vector2<T>(this->X * v2Left.X, this->Y * v2Right.Y);
+			*this = vec2f(this->X * v2Right.X, this->Y * v2Right.Y);
 		}
 
-		template<class T>
-		void Vector2<T>::operator/=(Vector2<T> &v2Right)
+		
+		void vec2f::operator/=(vec2f &v2Right)
 		{
-			*this = Vector2<T>(this->X / v2Left.X, this->Y / v2Right.Y);
+			*this = vec2f(this->X / v2Right.X, this->Y / v2Right.Y);
 		}
 
 
-		template<class T>
-		void Vector2<T>::operator+=(T right)
+		
+		void vec2f::operator+=(float right)
 		{
-			*this = Vector2<T>(this->X + right, this->Y + right);
+			*this = vec2f(this->X + right, this->Y + right);
 		}
 
-		template<class T>
-		void Vector2<T>::operator-=(T right)
+		
+		void vec2f::operator-=(float right)
 		{
-			*this = Vector2<T>(this->X - right, this->Y - right);
+			*this = vec2f(this->X - right, this->Y - right);
 		}
 
-		template<class T>
-		void Vector2<T>::operator*=(T right)
+		
+		void vec2f::operator*=(float right)
 		{
-			*this = Vector2<T>(this->X * right, this->Y * right);
+			*this = vec2f(this->X * right, this->Y * right);
 		}
 
-		template<class T>
-		void Vector2<T>::operator/=(T right)
+		
+		void vec2f::operator/=(float right)
 		{
-			*this = Vector2<T>(this->X / right, this->Y / right);
+			*this = vec2f(this->X / right, this->Y / right);
 		}
 
 		/////////////
-
-		template<typename T>
-		Vector2<T> operator+(Vector2<T> &v2Left, Vector2<T> &v2Right)
+		
+		vec2f operator+(vec2f &v2Left, vec2f &v2Right)
 		{
-			v2Left = Vec2::Sum(v2Left, v2Right);
-			return v2Left;
+			vec2f res = Vec2::Sum(v2Left, v2Right);
+			return res;
 		}
-
-		template<typename T>
-		Vector2<T> operator-(Vector2<T> &v2Left, Vector2<T> &v2Right)
+				
+		vec2f operator-(vec2f &v2Left, vec2f &v2Right)
 		{
-			v2Left = Vec2::Sub(v2Left, v2Right);
-			return v2Left;
+			vec2f res = Vec2::Sub(v2Left, v2Right);
+			return res;
 		}
-
-		template<typename T>
-		Vector2<T> operator*(Vector2<T> &v2Left, Vector2<T> &v2Right)
+				
+		vec2f operator*(vec2f &v2Left, vec2f &v2Right)
 		{
-			v2Left = Vec2::Mul(v2Left, v2Right);
-			return v2Left;
+			vec2f res = Vec2::Mul(v2Left, v2Right);
+			return res;
 		}
-
-		template<typename T>
-		Vector2<T> operator/(Vector2<T> &v2Left, Vector2<T> &v2Right)
+				
+		vec2f operator/(vec2f &v2Left, vec2f &v2Right)
 		{
-			v2Left = Vec2::Div(v2Left, v2Right);
-			return v2Left;
+			vec2f res = Vec2::Div(v2Left, v2Right);
+			return res;
 		}
-
-
-		template<typename T>
-		Vector2<T> operator+(Vector2<T> &v2Left, T right)
+				
+		vec2f operator+(vec2f &v2Left, float right)
 		{
-			v2Left = Vec2::Sum(v2Left, right);
-			return v2Left;
+			vec2f res = Vec2::Sum(v2Left, right);
+			return res;
 		}
-
-		template<typename T>
-		Vector2<T> operator-(Vector2<T> &v2Left, T right)
+		
+		vec2f operator-(vec2f &v2Left, float right)
 		{
-			v2Left = Vec2::Sub(v2Left, right);
-			return v2Left;
+			vec2f res = Vec2::Sub(v2Left, right);
+			return res;
 		}
-
-		template<typename T>
-		Vector2<T> operator*(Vector2<T> &v2Left, T right)
+				
+		vec2f operator*(vec2f &v2Left, float right)
 		{
-			v2Left = Vec2::Mul(v2Left, right);
-			return v2Left;
+			vec2f res = Vec2::Mul(v2Left, right);
+			return res;
 		}
-
-		template<typename T>
-		Vector2<T> operator/(Vector2<T> &v2Left, T right)
+		
+		vec2f operator/(vec2f &v2Left, float right)
 		{
-			v2Left = Vec2::Div(v2Left, right);
-			return v2Left;
+			vec2f res = Vec2::Div(v2Left, right);
+			return res;
 		}
-
-		template<typename T>
-		Vector2<T> operator+(T left, Vector2<T> &v2Right)
+		
+		vec2f operator+(float left, vec2f &v2Right)
 		{
-			v2Left = Vec2::Sum(left, v2Right);
-			return v2Left;
+			vec2f res = Vec2::Sum(left, v2Right);
+			return res;
 		}
-
-		template<typename T>
-		Vector2<T> operator-(T left, Vector2<T> &v2Right)
+				
+		vec2f operator-(float left, vec2f &v2Right)
 		{
-			v2Left = Vec2::Sub(left, v2Right);
-			return v2Left;
+			vec2f res = Vec2::Sub(left, v2Right);
+			return res;
 		}
-
-		template<typename T>
-		Vector2<T> operator*(T left, Vector2<T> &v2Right)
+		
+		vec2f operator*(float left, vec2f &v2Right)
 		{
-			v2Left = Vec2::Mul(left, v2Right);
-			return v2Left;
+			vec2f res = Vec2::Mul(left, v2Right);
+			return res;
 		}
-
-		template<typename T>
-		Vector2<T> operator/(T left, Vector2<T> &v2Right)
+		
+		vec2f operator/(float left, vec2f &v2Right)
 		{
-			v2Left = Vec2::Div(left, v2Right);
-			return v2Left;
+			vec2f res = Vec2::Div(left, v2Right);
+			return res;
 		}
 
 		/////////////////
 
 		namespace Vec2
 		{
-			template<typename T>
-			float Length(Vector2<T> &v2)
+			
+			float Length(vec2f &v2)
 			{
 				float result = sqrtf((v2.X * v2.X) + (v2.Y * v2.Y));
 				return result;
 			}
-
-			template<typename T>
-			float LengthSquare(Vector2<T> &v2)
+			
+			float LengthSquare(vec2f &v2)
 			{
 				float result = ((v2.X * v2.X) + (v2.Y * v2.Y));
 				return result;
 			}
 
-			template<typename T>
-			Vector2<T> Normalize(Vector2<T> &v2)
+			vec2f Normalize(vec2f &v2)
 			{
 				float length = Length(v2);
-				v2 = Vector2<T>((v2.X / length), (v2.Y / length));
-				return v2;
+				vec2f res = vec2f((v2.X / length), (v2.Y / length));
+				return res;
+			}
+			
+			vec2f Sum(vec2f &v2Left, vec2f &v2Right)
+			{
+				vec2f res = vec2f(v2Right.X + v2Left.X, v2Right.Y + v2Left.Y);
+				return res;
+			}
+			
+			vec2f Sub(vec2f &v2Left, vec2f &v2Right)
+			{
+				vec2f res = vec2f(v2Right.X - v2Left.X, v2Right.Y - v2Left.Y);
+				return res;
+			}
+			
+			vec2f Mul(vec2f &v2Left, vec2f &v2Right)
+			{
+				vec2f res = vec2f(v2Right.X * v2Left.X, v2Right.Y * v2Left.Y);
+				return res;
+			}
+			
+			vec2f Div(vec2f &v2Left, vec2f &v2Right)
+			{
+				vec2f res = vec2f(v2Right.X / v2Left.X, v2Right.Y / v2Left.Y);
+				return res;
+			}
+			
+			vec2f Sum(vec2f &v2Left, float right)
+			{
+				vec2f res = vec2f(right + v2Left.X, right + v2Left.Y);
+				return res;
+			}
+			
+			vec2f Sub(vec2f &v2Left, float right)
+			{
+				vec2f res = vec2f(v2Left.X - right, v2Left.Y - right);
+				return res;
+			}
+						
+			vec2f Mul(vec2f &v2Left, float right)
+			{
+				vec2f res = vec2f(right * v2Left.X, right * v2Left.Y);
+				return res;
+			}
+						
+			vec2f Div(vec2f &v2Left, float right)
+			{
+				vec2f res = vec2f(v2Left.X / right, v2Left.Y / right);
+				return res;
+			}
+			
+			
+			vec2f Sum(float left, vec2f &v2Right)
+			{
+				vec2f res = vec2f(left + v2Right.X, left + v2Right.Y);
+				return res;
+			}
+			
+			vec2f Sub(float left, vec2f &v2Right)
+			{
+				vec2f res = vec2f(left - v2Right.X, left - v2Right.Y);
+				return res;
 			}
 
-
-			template<typename T>
-			Vector2<T> Sum(Vector2<T> &v2Left, Vector2<T> &v2Right)
+			
+			vec2f Mul(float left, vec2f &v2Right)
 			{
-				v2Left = Vector2<T>(v2Right.X + v2Left.X, v2Right.Y + v2Left.Y);
-				return v2Left;
+				vec2f res = vec2f(left * v2Right.X, left * v2Right.Y);
+				return res;
 			}
-
-			template<typename T>
-			Vector2<T> Sub(Vector2<T> &v2Left, Vector2<T> &v2Right)
+						
+			vec2f Div(float left, vec2f &v2Right)
 			{
-				v2Left = Vector2<T>(v2Right.X - v2Left.X, v2Right.Y - v2Left.Y);
-				return v2Left;
-			}
-
-			template<typename T>
-			Vector2<T> Mul(Vector2<T> &v2Left, Vector2<T> &v2Right)
+				vec2f res = vec2f(left / v2Right.X, left / v2Right.Y);
+				return res;
+			}	
+			
+			vec2f Translate(vec2f &point, vec2f &direction)
 			{
-				v2Left = Vector2<T>(v2Right.X * v2Left.X, v2Right.Y * v2Left.Y);
-				return v2Left;
-			}
-
-			template<typename T>
-			Vector2<T> Div(Vector2<T> &v2Left, Vector2<T> &v2Right)
-			{
-				v2Left = Vector2<T>(v2Right.X / v2Left.X, v2Right.Y / v2Left.Y);
-				return v2Left;
-			}
-
-
-			template<typename T>
-			Vector2<T> Sum(Vector2<T> &v2Left, T right)
-			{
-				v2Left = Vector2<T>(right + v2Left.X, right + v2Left.Y);
-				return v2Left;
-			}
-
-			template<typename T>
-			Vector2<T> Sub(Vector2<T> &v2Left, T right)
-			{
-				v2Left = Vector2<T>(v2Left.X - right, v2Left.Y - right);
-				return v2Left;
-			}
-
-			template<typename T>
-			Vector2<T> Mul(Vector2<T> &v2Left, T right)
-			{
-				v2Left = Vector2<T>(right * v2Left.X, right * v2Left.Y);
-				return v2Left;
-			}
-
-			template<typename T>
-			Vector2<T> Div(Vector2<T> &v2Left, T right)
-			{
-				v2Left = Vector2<T>(v2Left.X / right, v2Left.Y / right);
-				return v2Left;
-			}
-
-
-			template<typename T>
-			Vector2<T> Sum(T left, Vector2<T> &v2Right)
-			{
-				v2Left = Vector2<T>(left + v2Right.X, left + v2Right.Y);
-				return v2Left;
-			}
-
-			template<typename T>
-			Vector2<T> Sub(T left, Vector2<T> &v2Right)
-			{
-				v2Left = Vector2<T>(left - v2Right.X, left - v2Right.Y);
-				return v2Left;
-			}
-
-			template<typename T>
-			Vector2<T> Mul(T left, Vector2<T> &v2Right)
-			{
-				v2Left = Vector2<T>(left * v2Right.X, left * v2Right.Y);
-				return v2Left;
-			}
-
-			template<typename T>
-			Vector2<T> Div(T left, Vector2<T> &v2Right)
-			{
-				v2Left = Vector2<T>(left / v2Right.X, left / v2Right.Y);
-				return v2Left;
-			}			
-
-			template<typename T>
-			Vector2<T> Translate(Vector2<T> &point, Vector2<T> &direction)
-			{
-				Vector2<T> result = Mat4::Translation(direction) * point;
+				vec2f result = Mat4::Translation(vec3f(direction)) * point;
 
 				return result;
 			}
-
-			template<typename T>
-			Vector2<T> Rotate(Vector2<T> &point, Vector2<T> &angle)
+			
+			vec2f Rotate(vec2f &point, vec2f &angle)
 			{
-				Vector2<T> result = Mat4::Rotation(angle) * point;
+				vec2f result = Mat4::Rotation(vec3f(angle)) * point;
 
 				return result;
 			}
-
-			template<typename T>
-			Vector2<T> Scale(Vector2<T> &point, Vector2<T> &value)
+			
+			vec2f Scale(vec2f &point, vec2f &value)
 			{
-				Vector2<T> result = Mat4::Scale(value) * point;
+				vec2f result = Mat4::Scale(vec3f(value)) * point;
 
 				return result;
 			}
 		}
 	}
 }
-
-#endif

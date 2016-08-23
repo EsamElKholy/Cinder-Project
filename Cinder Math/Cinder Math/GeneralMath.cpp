@@ -9,8 +9,7 @@ namespace Cinder
 	{
 		namespace Functions
 		{
-			template<typename T>
-			T Clamp(T value, T min, T max)
+			float Clamp(float value, float min, float max)
 			{
 				if (value < min)
 				{
@@ -24,15 +23,7 @@ namespace Cinder
 				{
 					return value;
 				}
-			}
-
-			template<typename T>
-			void Swap(T &a, T &b)
-			{
-				T temp = a;
-				a = b;
-				b = temp;
-			}
+			}			
 		}
 	}
 }

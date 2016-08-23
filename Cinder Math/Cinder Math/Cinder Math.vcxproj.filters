@@ -29,10 +29,10 @@
     <ClCompile Include="Vector4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneralMath.cpp">
+    <ClCompile Include="Matrix4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Matrix4.cpp">
+    <ClCompile Include="GeneralMath.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
