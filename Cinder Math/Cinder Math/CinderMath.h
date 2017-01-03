@@ -794,7 +794,201 @@ namespace Cinder
 		vec4f operator/(vec4f &v4Left, float right);
 		vec4f operator/(float left, vec4f &v4Right);
 
-		/////////////////			
+		/////////////////
+		struct mat4f;
+		struct quatf
+		{
+		public:
+			union
+			{
+				struct
+				{
+					float X, Y, Z, W;
+				};
+
+				struct
+				{
+					float R, G, B, A;
+				};
+
+				float Elements[4];
+			};
+
+		public:
+			quatf(float x = 0, float y = 0, float z = 0, float w = 1)
+				: X(x), Y(y), Z(z), W(w)
+			{}
+
+			quatf(vec3f &vec3, float w = 1)
+				: X(vec3.X), Y(vec3.Y), Z(vec3.Z), W(w)
+			{}			
+
+			quatf(vec2f &vec2_1, vec2f &vec2_2)
+				: X(vec2_1.X), Y(vec2_1.Y), Z(vec2_2.X), W(vec2_2.Y)
+			{}
+
+			quatf(vec2f &vec2, float z = 0, float w = 1)
+				: X(vec2.X), Y(vec2.Y), Z(z), W(w)
+			{}
+
+			quatf(float x, float y, vec2f &vec2)
+				: X(x), Y(y), Z(vec2.X), W(vec2.Y)
+			{}
+
+			quatf(float &angle, vec3f &axis);
+			quatf(mat4f &m);
+
+			~quatf() {}
+		public:
+			////////////////////////
+
+			void operator=(quatf & v4Right);
+			bool operator==(quatf &v4Right);
+			bool operator!=(quatf &v4Right);
+			float& operator[](unsigned int index);
+
+			////////////////////////
+
+			void operator+=(quatf &v4Right);
+			void operator+=(float right);
+
+			void operator-=(quatf &v4Right);
+			void operator-=(float right);
+
+			void operator*=(quatf &v4Right);
+			void operator*=(vec3f &v4Right);
+			void operator*=(float right);
+
+			void operator/=(quatf &v4Right);
+			void operator/=(float right);
+
+			vec3f GetUp();
+			vec3f GetDown();
+			
+			vec3f GetFront();
+			vec3f GetBack();
+
+			vec3f GetRight();
+			vec3f GetLeft();
+
+			mat4f ToRotationMatrix();
+		};
+
+		quatf operator+(quatf &v4Left, quatf &v4Right);
+		quatf operator+(quatf &v4Left, float right);
+		quatf operator+(float left, quatf &v4Right);
+		
+		quatf operator-(quatf &v4Left, quatf &v4Right);
+		quatf operator-(quatf &v4Left, float right);
+		quatf operator-(float left, quatf &v4Right);
+		
+		quatf operator*(quatf &v4Left, quatf &v4Right);
+		quatf operator*(quatf &v4Left, vec3f &v4Right);
+		quatf operator*(quatf &v4Left, float right);
+		quatf operator*(float left, quatf &v4Right);
+		
+		quatf operator/(quatf &v4Left, quatf &v4Right);
+		quatf operator/(quatf &v4Left, float right);
+		quatf operator/(float left, quatf &v4Right);
+
+		/////////////////
+
+		struct mat2f
+		{
+		public:
+			union
+			{
+				float Elements_2D[2][2];
+				float Elements_1D[4];
+			};
+		public:
+			mat2f(float value = 1, bool diagonalOnly = true);
+
+			~mat2f() {}
+		public:
+			///////////////////////			
+
+			vec2f operator[](unsigned int row);
+
+			void operator=(mat2f &other);
+
+			void operator+=(mat2f &other);
+
+			void operator-=(mat2f &other);
+
+			void operator*=(float other);
+			void operator*=(mat2f &other);
+
+			void operator/=(float other);
+
+			///////////////////////
+
+			mat2f Inverse();
+			mat2f Transpose();
+			float Determinant();
+		};
+
+		////////////////////////////////////////
+
+		mat2f operator+(mat2f &left, mat2f &right);
+
+		mat2f operator-(mat2f &left, mat2f &right);
+
+		mat2f operator*(mat2f &left, float right);
+		mat2f operator*(mat2f &left, mat2f &right);
+
+		mat2f operator/(mat2f &left, float right);
+
+		////////////////////////////////////////
+
+		struct mat3f
+		{
+		public:
+			union
+			{
+				float Elements_2D[3][3];
+				float Elements_1D[9];
+			};
+		public:
+			mat3f(float value = 1, bool diagonalOnly = true);
+
+			~mat3f() {}
+		public:
+			///////////////////////			
+
+			vec3f operator[](unsigned int row);
+
+			void operator=(mat3f &other);
+
+			void operator+=(mat3f &other);
+
+			void operator-=(mat3f &other);
+
+			void operator*=(float other);
+			void operator*=(mat3f &other);
+
+			void operator/=(float other);
+
+			///////////////////////
+
+			float GetMinor(int r0, int r1, int c0, int c1);
+			mat3f Inverse();
+			mat3f Transpose();
+			float Determinant();
+		};
+
+		////////////////////////////////////////
+
+		mat3f operator+(mat3f &left, mat3f &right);
+
+		mat3f operator-(mat3f &left, mat3f &right);
+
+		mat3f operator*(mat3f &left, float right);
+		mat3f operator*(mat3f &left, mat3f &right);
+		
+		mat3f operator/(mat3f &left, float right);
+
+		////////////////////////////////////////
 
 		struct mat4f
 		{
@@ -825,6 +1019,11 @@ namespace Cinder
 			void operator/=(float other);
 
 			///////////////////////
+
+			float GetMinor(int r0, int r1, int r2, int c0, int c1, int c2);
+			mat4f Inverse();
+			mat4f Transpose();
+			float Determinant();
 		};
 
 		////////////////////////////////////////
@@ -908,7 +1107,9 @@ namespace Cinder
 
 			vec3f Translate(vec3f &point, vec3f &direction);
 
+			vec3f Rotate(vec3f &v, quatf &q);
 			vec3f Rotate(vec3f &point, vec3f &angle);
+			vec3f Rotate(vec3f &point, float &angle, vec3f &axis);
 
 			vec3f Scale(vec3f &point, vec3f &value);
 		}
@@ -938,6 +1139,38 @@ namespace Cinder
 			vec4f Div(float left, vec4f &v4Right);
 		}
 
+		namespace Quat
+		{
+			float Length(quatf &v4);
+
+			float LengthSquare(quatf &v4);
+
+			quatf Normalize(quatf &v4);
+
+			quatf Sum(quatf &v4Left, quatf &v4Right);
+			quatf Sum(quatf &v4Left, float right);
+			quatf Sum(float left, quatf &v4Right);
+
+			quatf Sub(quatf &v4Left, quatf &v4Right);
+			quatf Sub(quatf &v4Left, float right);
+			quatf Sub(float left, quatf &v4Right);
+
+			quatf Mul(quatf &v4Left, quatf &v4Right);
+			quatf Mul(quatf &v4Left, vec3f &v4Right);
+			quatf Mul(quatf &v4Left, float right);
+			quatf Mul(float left, quatf &v4Right);
+
+			quatf Div(quatf &v4Left, quatf &v4Right);
+			quatf Div(quatf &v4Left, float right);
+			quatf Div(float left, quatf &v4Right);
+
+			quatf Conjugate(quatf &q);
+
+			quatf RotateX(float &angle, quatf &q);
+			quatf RotateY(float &angle, quatf &q);
+			quatf RotateZ(float &angle, quatf &q);
+		}
+
 		namespace Mat4
 		{
 			mat4f Sum(mat4f &left, mat4f &right);
@@ -954,7 +1187,12 @@ namespace Cinder
 
 			mat4f Translation(vec3f &direction);
 			mat4f Scale(vec3f &value);
+			
 			mat4f Rotation(vec3f &angle);
+			mat4f Rotation(float &angle, vec3f &axis);
+			mat4f Rotation(vec3f &dir, vec3f &up);
+			mat4f Rotation(vec3f &forward, vec3f &right, vec3f &up);
+
 			mat4f LookAt(vec3f eye, vec3f target, vec3f up);
 			mat4f Orthographic(float right, float left, float top, float bottom, float near, float far);
 			mat4f Orthographic(float width, float height, float near, float far);

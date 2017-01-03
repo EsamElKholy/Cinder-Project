@@ -2258,7 +2258,6 @@ namespace Cinder
 
 		namespace Vec4
 		{
-
 			float Length(vec4f &v4)
 			{
 				float result = sqrtf((v4.X * v4.X) + (v4.Y * v4.Y) + (v4.Z * v4.Z) + (v4.W * v4.W));
@@ -2273,8 +2272,8 @@ namespace Cinder
 
 			vec4f Normalize(vec4f &v4)
 			{
-				float length = Length(v4);
-				vec4f res = vec4f((v4.X / length), (v4.Y / length), (v4.Z / length), (v4.W / length));
+				float length = 1.0f / Length(v4);
+				vec4f res = vec4f((v4.X * length), (v4.Y * length), (v4.Z * length), (v4.W * length));
 				return res;
 			}
 

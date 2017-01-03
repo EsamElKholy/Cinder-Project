@@ -469,9 +469,42 @@ namespace Cinder
 				return result;
 			}
 
+			vec3f Rotate(vec3f &v, quatf &q)
+			{
+				vec3f result;
+
+				quatf cq = Quat::Conjugate(q);
+				quatf w = q * v;
+				w = w * cq;
+
+				result.X = w.X;
+				result.Y = w.Y;
+				result.Z = w.Z;
+
+				return result;
+			}
+
 			vec3f Rotate(vec3f &point, vec3f &angle)
 			{
 				vec3f result = Mat4::Rotation(angle) * point;
+
+				return result;
+			}
+
+			vec3f Rotate(vec3f &point, float &angle, vec3f &axis)
+			{
+				vec3f result;
+
+				float c = cosf(ToRadians(-angle));
+				float s = sinf(ToRadians(-angle));
+
+				vec3f y = Dot((1 - c) * axis, point) * axis;
+				
+				vec3f z = (c * point) + y;
+
+				vec3f x = (s * axis) + z;
+
+				result = Cross(point, x);
 
 				return result;
 			}

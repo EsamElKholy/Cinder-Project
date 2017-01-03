@@ -1,14 +1,17 @@
-g:\my projects\cinder-project\cinder math\intermediates\cinder math\debug\cinder math.pdb
-g:\my projects\cinder-project\cinder math\intermediates\cinder math\debug\cinder math.idb
-g:\my projects\cinder-project\cinder math\intermediates\cinder math\debug\generalmath.obj
-g:\my projects\cinder-project\cinder math\intermediates\cinder math\debug\matrix4.obj
-g:\my projects\cinder-project\cinder math\intermediates\cinder math\debug\vector2.obj
-g:\my projects\cinder-project\cinder math\intermediates\cinder math\debug\vector3.obj
-g:\my projects\cinder-project\cinder math\intermediates\cinder math\debug\vector4.obj
-g:\my projects\cinder-project\cinder math\bin\cinder math\debug\cinder math_debug.lib
-g:\my projects\cinder-project\cinder math\intermediates\cinder math\debug\cinder math.tlog\cl.command.1.tlog
-g:\my projects\cinder-project\cinder math\intermediates\cinder math\debug\cinder math.tlog\cl.read.1.tlog
-g:\my projects\cinder-project\cinder math\intermediates\cinder math\debug\cinder math.tlog\cl.write.1.tlog
-g:\my projects\cinder-project\cinder math\intermediates\cinder math\debug\cinder math.tlog\lib-link.read.1.tlog
-g:\my projects\cinder-project\cinder math\intermediates\cinder math\debug\cinder math.tlog\lib-link.write.1.tlog
-g:\my projects\cinder-project\cinder math\intermediates\cinder math\debug\cinder math.tlog\lib.command.1.tlog
+g:\cinder-project\cinder math\intermediates\cinder math\debug\cinder math.pdb
+g:\cinder-project\cinder math\intermediates\cinder math\debug\cinder math.idb
+g:\cinder-project\cinder math\intermediates\cinder math\debug\generalmath.obj
+g:\cinder-project\cinder math\intermediates\cinder math\debug\matrix2.obj
+g:\cinder-project\cinder math\intermediates\cinder math\debug\matrix3.obj
+g:\cinder-project\cinder math\intermediates\cinder math\debug\matrix4.obj
+g:\cinder-project\cinder math\intermediates\cinder math\debug\quaternion.obj
+g:\cinder-project\cinder math\intermediates\cinder math\debug\vector2.obj
+g:\cinder-project\cinder math\intermediates\cinder math\debug\vector3.obj
+g:\cinder-project\cinder math\intermediates\cinder math\debug\vector4.obj
+g:\cinder-project\cinder math\bin\cinder math\debug\cinder math_debug.lib
+g:\cinder-project\cinder math\intermediates\cinder math\debug\cinder math.tlog\cl.command.1.tlog
+g:\cinder-project\cinder math\intermediates\cinder math\debug\cinder math.tlog\cl.read.1.tlog
+g:\cinder-project\cinder math\intermediates\cinder math\debug\cinder math.tlog\cl.write.1.tlog
+g:\cinder-project\cinder math\intermediates\cinder math\debug\cinder math.tlog\lib-link.read.1.tlog
+g:\cinder-project\cinder math\intermediates\cinder math\debug\cinder math.tlog\lib-link.write.1.tlog
+g:\cinder-project\cinder math\intermediates\cinder math\debug\cinder math.tlog\lib.command.1.tlog
